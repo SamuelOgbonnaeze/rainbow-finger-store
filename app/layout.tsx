@@ -1,8 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: '--font-inter'
+});
+const nunito = Nunito({
+  subsets: ["latin"],
+  variable: '--font-nunito'
+});
+
+const lato = Lato({
+  weight: ["100", "300", '400', '700', '900'],
+  subsets: ["latin"],
+  variable: '--font-lato'
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: '--font-hankenGrotesk'
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
+      <body>{children}</body>
     </html>
   );
 }
