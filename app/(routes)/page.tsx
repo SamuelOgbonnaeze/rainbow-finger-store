@@ -1,10 +1,14 @@
+import getCategories from "@/actions/get-category";
+import Discover from "@/components/discover";
 
 
-export default function Home() {
+export default async function Home () {
+  const categories = await getCategories()
   return (
+
     <div>
-      <p className="text-8xl font-lato">hello World</p>
-      <p className="text-8xl font-nunito">Hello store</p>
+      <Discover data={categories} />
+
     </div>
   );
 }
