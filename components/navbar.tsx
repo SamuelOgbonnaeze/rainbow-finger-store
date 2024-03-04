@@ -22,7 +22,7 @@ const Nav = () => {
 
 
     return (
-        <div className=' w-full py-4 border-b'>
+        <div className=' absolute w-full py-4 '>
 
             <Container>
                 <div className={nav ? 'w-full h-full mx-auto flex items-center justify-between' : ' w-full h-full items-center justify-between flex'}>
@@ -44,7 +44,7 @@ const Nav = () => {
                         </Link>
                     </div>
                     {/* mobile mode */}
-                    <div className={nav ? 'absolute text-gray-200 flex lg:hidden z-10 right-0 top-[0px] h-screen bg-[#DF3B11] opacity-90' :
+                    <div className={nav ? 'absolute flex lg:hidden z-10 right-0 top-[0px] h-screen bg-white text-[#DF3B11] opacity-90' :
                         'absolute hidden'}>
                         <ul className='flex flex-col w-full items-center mt-40 lg:justify-center text-center'>
                             <li className='font-inter font-normal text-[18px] leading-[32px] p-3'><Link href='/Lessons'> Lessons </Link></li>
@@ -55,7 +55,7 @@ const Nav = () => {
                                     size={24}
                                     width={24}
                                     height={24}
-                                    className='text-gray-200'
+                                    className='text-[#DF3B11]'
                                 />
                             </Link></li>
 

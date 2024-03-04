@@ -32,18 +32,18 @@ const Discover: React.FC<DiscoverProps> = ({
 
 
     return (
-        <div className='w-full '>
+        <div className='w-full text-[#050304] font-nunito '>
             {/* discover Heading */}
-            <div className='mt-[80px] w-full h-[200px] opacity-500 mx-auto '>
+            <div className='mt-[80px] w-full  opacity-500 mx-auto '>
                 <div className='bg-[url("/images/musical-note.png")] bg-cover bg-no-repeat bg-center text-center items-center'>
-                    <div className='mt-[33px]  w-[300px] md:w-[500px] lg:w-[841px] h-[134px] mx-auto py-2 '>
-                        <p className=' font-nunito font-light text-3xl md:text-4xl lg:text-[64px] leading-10 md:leading-[57px] lg:leading-[77px] text-center text-[#050304] '>Discover Your Perfect Guitar at <span className='font-normal text-[#0000D2]'>Rainbow Fingers</span></p>
+                    <div className='mt-[33px]  w-[300px] md:w-[500px] lg:w-[1000px] h-[134px] mx-auto py-2 '>
+                        <p className=' font-nunito font-normal text-3xl md:text-4xl lg:text-[64px] leading-10 md:leading-[57px] text-center  '>Discover Your Perfect Guitar at <span className=' text-[#0000D2]'>Rainbow Fingers</span></p>
                     </div>
                 </div>
             </div>
             {/* Discover paragraph */}
-            <div className='lg:mt-[51px] w-[350px] md:w-[450px] lg:w-[695px] h-[57px] mx-auto'>
-                <p className='font-nunito  font-normal leading-[20px] md:leading-[30px] text-[15px] md:text-[20px] text-center text-[#000000]'>Explore our extensive selection of high-quality electric, acoustic, and classical guitars, and find the one that best suits your style and budget.</p>
+            <div className='mt-10 w-[80%]  mx-auto text-center'>
+                <p className='leading-[20.5px] md:leading-[30.5px] text-[15px] md:text-[20px] font-normal'>Explore our extensive selection of high-quality electric, acoustic, and classical guitars, and find the one that best suits your style and budget.</p>
             </div>
 
             {/* Discover Guitar */}

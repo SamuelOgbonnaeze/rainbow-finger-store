@@ -3,6 +3,8 @@ import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import getCategories from "@/actions/get-category";
+import Discover from "@/components/discover";
 
 
 
@@ -32,16 +34,19 @@ export const metadata: Metadata = {
   description: "Your one-stop shop for all guitar accessories",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
         <Navbar />
         {children}
+       
         <Footer />
       </body>
     </html>

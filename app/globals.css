@@ -6,3 +6,26 @@ html,
 body:root {
   height: 100% ;
 }
+
+
+.gradient {
+  background: linear-gradient(90deg, #E8E8E8 50%, #920000 50%);
+}
+
+@media (max-width: 766px) { /* Change 768px to your desired medium screen size */
+  .gradient {
+    background: linear-gradient(180deg, #E8E8E8 60%, #920000 40%);
+  }
+}
+
+.bg-gradient-right{
+  background: linear-gradient(90deg, #920000 100%, #E24F29 100%)
+}
+
+.gradient-border {
+  background: linear-gradient(180deg, #EF9D88 0%, #FFB9A7 100%);
+}
+
+input:focus {
+  outline: none;
+}
