@@ -24,7 +24,7 @@ const Discover: React.FC<DiscoverProps> = ({
     const pathname = usePathname();
 
     const routes = data.map((route) => ({
-        href: `/category/${route.id}`,
+        href: '/',
         label: route.name,
         active: pathname === `category/${route.id}`
     }))
@@ -53,25 +53,14 @@ const Discover: React.FC<DiscoverProps> = ({
                         key={route.href}
                         href={route.href}
                     >
-                        <div className={cn(' h-[50px]  px-[24px] py-[13px] gap-[10px] rounded-[60px] hover:border-[#DF3B11] hover:text-[#E24F29] hover:border-solid hover:border-b-[4px]  group ',
+                        <div className={cn(' h-[50px]  px-[24px] py-[13px] gap-[10px] rounded-[60px] hover:border-[#DF3B11] hover:text-[#E24F29] hover:border-solid hover:border-b-[4px] justify-center flex  group ',
                             route.active ? "border-[#DF3B11] text-[#E24F29]" : "text-[#363F5E]"
                         )}>
                             <p className=' h-[20px] -tracking-2 text-[16px] leading-[20.48px]text-center font-nunito font-normal  '>{route.label}</p>
                         </div>
                     </Link>
                 ))}
-                {/* Acoustic */}
-                {/* <div className=' h-[50px]  px-[24px] py-[13px] gap-[10px] rounded-[60px] hover:border-[#DF3B11] hover:border-solid hover:border-b-[4px] group'>
-                    <p className=' h-[20px] -tracking-2 text-[16px] leading-[20.48px]text-center font-nunito font-normal text-[#363F5E] group-hover:text-[#E24F29]'>Acoustic guitar</p>
-                </div> */}
-                {/* Electric */}
-                {/* <div className=' h-[46px]  px-[24px] py-[13px] gap-[10px] rounded-[60px] hover:border-[#DF3B11] hover:border-solid hover:border-b-[4px] group'>
-                    <p className=' h-[20px] -tracking-2 text-[16px] leading-[20.48px] text-center font-nunito font-normal text-[#363F5E] group-hover:text-[#E24F29]'>Electric guitar</p>
-                </div> */}
-                {/* Accessories */}
-                {/* <div className='col-span-2 md:col-span-1 h-[46px]  px-[24px] py-[13px] gap-[10px] rounded-[60px] justify-center mx-auto  hover:border-[#DF3B11] hover:border-solid hover:border-b-[4px] group'>
-                    <p className=' h-[20px] -tracking-2 text-[16px] leading-[20.48px] text-center font-nunito font-normal text-[#363F5E] group-hover:text-[#E24F29]'>Accessories</p>
-                </div> */}
+               
             </div>
 
             {/* Guitar Cards */}

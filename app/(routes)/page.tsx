@@ -4,6 +4,8 @@ import Experience from "@/components/experience";
 import Hero from "@/components/hero";
 
 
+export const revalidate = 0
+
 export default async function Home() {
   const categories = await getCategories();
 

@@ -3,8 +3,6 @@ import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import getCategories from "@/actions/get-category";
-import Discover from "@/components/discover";
 
 
 
@@ -46,7 +44,6 @@ export default async function RootLayout({
       <body>
         <Navbar />
         {children}
-       
         <Footer />
       </body>
     </html>

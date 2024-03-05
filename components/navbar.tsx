@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from 'react'
-import { AiOutlineClose, AiOutlineMenu, AiOutlineShoppingCart } from 'react-icons/ai'
-import { FiShoppingCart } from 'react-icons/fi'
+import { useState, useEffect } from 'react'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { ShoppingCart } from 'lucide-react';
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,6 +10,7 @@ import Image from 'next/image'
 
 import Logo from '@/public/images/logo.png'
 import Container from '@/components/ui/container'
+import Button from '@/components/ui/button'
 
 
 const Nav = () => {
@@ -17,9 +18,16 @@ const Nav = () => {
 
 
     const handleNav = () => {
-        setNav(!nav); 
+        setNav(!nav);
     }
 
+    const [isMounted, setIsMounted] = useState(false)
+
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
+
+    if(!isMounted){}
 
     return (
         <div className=' absolute w-full py-4 '>
@@ -46,19 +54,24 @@ const Nav = () => {
                     {/* mobile mode */}
                     <div className={nav ? 'absolute flex lg:hidden z-10 right-0 top-[0px] h-screen bg-white text-[#DF3B11] opacity-90' :
                         'absolute hidden'}>
-                        <ul className='flex flex-col w-full items-center mt-40 lg:justify-center text-center'>
-                            <li className='font-inter font-normal text-[18px] leading-[32px] p-3'><Link href='/Lessons'> Lessons </Link></li>
-                            <li className='font-inter font-normal text-[18px] leading-[32px] p-3'><Link href='/Product'> Store </Link></li>
-                            <li className='font-inter font-normal text-[18px] leading-[32px] p-3'><Link href='/'> Hub </Link></li>
-                            <li><Link href='/' className='w-[82px] h-[32px] p-3' >
-                                <AiOutlineShoppingCart
-                                    size={24}
-                                    width={24}
-                                    height={24}
-                                    className='text-[#DF3B11]'
-                                />
-                            </Link></li>
-
+                        <ul className='flex flex-col w-full gap-y-6 items-center mt-40 lg:justify-center text-center font-inter font-normal text-[18px] leading-[32px] p-2'>
+                            <li className=' p-2 '><Link href='/Lessons'> Lessons </Link></li>
+                            <li className=' p-2'><Link href='/Product'> Store </Link></li>
+                            <li className=' p-2 '><Link href='/'> Hub </Link></li>
+                            <li>
+                                <div className='mx-auto flex items-center gap-x-4'>
+                                    <Button className='flex items-center rounded-full px-4 py-2 bg-[#DF3B11] text-sm gap-1'>
+                                        <ShoppingCart
+                                            size={20}
+                                            color='white '
+                                            className=''
+                                        />
+                                        <span className='ml-2 font-medium text-sm '>
+                                            0
+                                        </span>
+                                    </Button>
+                                </div>
+                            </li>
                         </ul>
                     </div>
 
@@ -67,7 +80,7 @@ const Nav = () => {
                     <div className={nav ? 'hidden ' : 'hidden lg:flex items-center justify-between  w-full'} >
                         {/* left side */}
                         <div className='container'>
-                            <div className=' ml-[45px] w-[350px] h-[32px] gap-[24px] items-center justify-between flex'>
+                            <div className=' ml-[45px]  h-[32px] gap-x-[24px] items-center flex'>
                                 <Link href='/Lessons' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
                                     <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Lessons</p>
                                 </Link>
@@ -77,14 +90,19 @@ const Nav = () => {
                                 <Link href='/' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
                                     <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Hub</p>
                                 </Link>
-                                <Link href='/' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] items-center group' >
-                                    <FiShoppingCart
-                                        size={24}
-                                        width={24}
-                                        height={24}
-                                        className='group-hover:text-[#DF3B11]'
-                                    />
-                                </Link>
+                                <div className='ml-auto flex items-center gap-x-4'>
+                                    <Button className='flex items-center rounded-full px-4 py-2 bg-white'>
+                                        <ShoppingCart
+                                            size={20}
+                                            color='black'
+                                            className='hover:text-[#DF3B11]'
+                                        />
+                                        <span className='ml-2 font-medium text-sm text-black'>
+                                            0
+                                        </span>
+                                    </Button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
