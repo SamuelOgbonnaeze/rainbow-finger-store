@@ -70,9 +70,9 @@ const Discover: React.FC<DiscoverProps> = ({
 
             </div>
 
-         {/* Discover Billboard */}
+            {/* Discover Billboard */}
 
-         <DiscoverBillboard />
+            <DiscoverBillboard />
 
             {/* Guitar Cards */}
             {/* <div className='mt-[51px] w-full h-[515px] grid grid-cols-2 lg:grid-cols-4 gap-[10px] px-2 justify-between mx-auto mb-[450px] lg:mb-0'>
