@@ -12,7 +12,7 @@ const Footer = () => {
     }
 
     return (
-        <div className='w-full  h-[420px]  bg-[#DF3B11] text-white py-[65px] '>
+        <div className='w-full  h-[420px]  bg-[#DF3B11] text-white py-[65px] mt-10 '>
             <div className='w-[90%] h-[60%] grid grid-cols-3 gap-6 mx-auto justify-between  '>
                 {/* 1st column */}
                 <div className='flex  flex-col   font-lato font-normal text-[16px] lg:text-[20px] leading-[20.5px] mx-auto justify-between'>

@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from 'react'
+
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { Category } from '@/types'
@@ -13,7 +13,7 @@ import Sample_3 from '../public/images/sample-3.png'
 import Sample_4 from '../public/images/sample-4.png'
 import Ratings from '../public/images/rating.png'
 import { IoIosAddCircleOutline } from 'react-icons/io'
-import DiscoverBillboard from './discover-billboard'
+import { Billboards, Product } from './discover-component'
 
 
 interface DiscoverProps {
@@ -72,7 +72,10 @@ const Discover: React.FC<DiscoverProps> = ({
 
             {/* Discover Billboard */}
 
-            <DiscoverBillboard />
+            <Billboards />
+
+            {/* Product List  */}
+            <Product />
 
             {/* Guitar Cards */}
             {/* <div className='mt-[51px] w-full h-[515px] grid grid-cols-2 lg:grid-cols-4 gap-[10px] px-2 justify-between mx-auto mb-[450px] lg:mb-0'>
