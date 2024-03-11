@@ -7,12 +7,7 @@ import Link from 'next/link'
 
 
 import Image from 'next/image'
-import Sample_1 from '../public/images/sample-1.png'
-import Sample_2 from '../public/images/sample-2.png'
-import Sample_3 from '../public/images/sample-3.png'
-import Sample_4 from '../public/images/sample-4.png'
-import Ratings from '../public/images/rating.png'
-import { IoIosAddCircleOutline } from 'react-icons/io'
+
 import { Billboards } from './discover-billboard-component'
 import { Product } from './discover-product-component'
 
@@ -73,7 +68,7 @@ const Discover: React.FC<DiscoverProps> = ({
 
             {/* Discover Billboard */}
             <div>
-                <Billboards />
+                {/* <Billboards /> */}
             </div>
 
             {/* Product List  */}
