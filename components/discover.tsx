@@ -13,7 +13,8 @@ import Sample_3 from '../public/images/sample-3.png'
 import Sample_4 from '../public/images/sample-4.png'
 import Ratings from '../public/images/rating.png'
 import { IoIosAddCircleOutline } from 'react-icons/io'
-import { Billboards, Product } from './discover-component'
+import { Billboards } from './discover-billboard-component'
+import { Product } from './discover-product-component'
 
 
 interface DiscoverProps {
@@ -71,17 +72,16 @@ const Discover: React.FC<DiscoverProps> = ({
             </div>
 
             {/* Discover Billboard */}
-
-            <Billboards />
+            <div>
+                <Billboards />
+            </div>
 
             {/* Product List  */}
-            <Product />
+            <div>
+                <Product />
+            </div>
 
-            {/* Guitar Cards */}
-            {/* <div className='mt-[51px] w-full h-[515px] grid grid-cols-2 lg:grid-cols-4 gap-[10px] px-2 justify-between mx-auto mb-[450px] lg:mb-0'>
-
-
-            </div> */}
+          
 
             {/* go to store button */}
 

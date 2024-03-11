@@ -20,7 +20,6 @@ export default async function HomePage() {
       <div className="px-[30px] md:px-[50px] lg:px-[70px]">
         <Experience />
         <Discover data={categories} />
-
       </div>
 
     </div>

@@ -34,7 +34,7 @@ const getCategories = async (query: Query): Promise<Product[]> => {
        
         return data; // Returning the fetched data
     } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching products:", error);
         return []; // Return an empty array in case of an error
     }
 };

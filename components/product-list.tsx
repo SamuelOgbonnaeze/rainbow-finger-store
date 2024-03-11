@@ -11,6 +11,9 @@ const ProductList: React.FC<ProductListProps> = ({
     title, items
 }) => {
 
+   
+   
+  
     // Function to shuffle the array
     const shuffleArray = (array: Product[]) => {
         for (let i = array.length - 1; i > 0; i--) {
