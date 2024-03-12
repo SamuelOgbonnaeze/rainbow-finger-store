@@ -1,7 +1,6 @@
 import prismadb from "@/lib/prismadb";
 import { Billboard } from "@/types";
 
-
 const getBillboard = async (id: string): Promise<Billboard> => {
     try {
         const res = await prismadb.billboard.findUnique({
@@ -16,8 +15,11 @@ const getBillboard = async (id: string): Promise<Billboard> => {
 
         return res; // Returning the fetched data
     } catch (error) {
-        console.log("Error fetching billboard:", error);
-        throw new Error("Error fetching billboard"); // Throw an error object instead of returning a string
+        // Log the actual error received from PrismaClient
+        console.error("Error fetching billboard:", error);
+
+        // Rethrow the error for higher-level error handling
+        throw error;
     }
 };
 

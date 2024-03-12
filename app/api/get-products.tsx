@@ -38,7 +38,6 @@ const getProducts = async (query: Query): Promise<Product[]> => {
 
         // Assuming you have a function to map products to the Product type
         const mappedProducts = mapProductsToProductType(products);
-        console.log(mappedProducts)
 
 
         return mappedProducts; // Returning the fetched data

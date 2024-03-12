@@ -50,7 +50,7 @@ const Discover: React.FC<DiscoverProps> = ({
             </div>
 
             {/* Discover Guitar */}
-            <div className='w-[350px] md:w-[629px] h-[50px] grid grid-cols-2 md:grid-cols-3 gap-[29px] mt-5 md:mt-10 mx-auto justify-between '>
+            <div className='w-[350px] md:w-[629px]  grid grid-cols-2 md:grid-cols-3 gap-[29px] mt-5 md:mt-10 mx-auto justify-between '>
                 {routes.map((route) => (
                     <Link
                         key={route.href}
@@ -68,7 +68,7 @@ const Discover: React.FC<DiscoverProps> = ({
 
             {/* Discover Billboard */}
             <div>
-                {/* <Billboards /> */}
+                <Billboards />
             </div>
 
             {/* Product List  */}
@@ -76,18 +76,17 @@ const Discover: React.FC<DiscoverProps> = ({
                 <Product />
             </div>
 
-          
+
 
             {/* go to store button */}
 
-            {/* <div className='w-[250px] md:w-[355px] h-[46px] mt-[569px] lg:mt-[109px] mx-auto rounded-[60px] border-solid border-[1px] border-[#E24F29] gap-[10px] px-[24px] py-[13px] justify-center hover:bg-[#E24F29] group '>
-                <div className='w-[87px] h-[20px] mx-auto '>
-                    <Link href='/' className='justify-center ' >
-                        <button className='font-medium font-nunito  text-[16px] text-[#E24F29] leading-[20.48px] text-center -tracking-2 group-hover:text-white '>Go to store</button>
-                    </Link>
+            <div className='w-[250px] mt-10 md:w-[393px] h-[46px] mx-auto rounded-[60px] border-solid border-[1px] border-[#E24F29] gap-[10px] px-[24px] py-[13px] hover:bg-[#E24F29] group cursor-pointer hover:scale-105 ease-in-out duration-300 flex items-center'>
+                    <div className=' flex items-center h-[20px] mx-auto '>
+                        <Link href='/' className='' >
+                            <button className='font-medium font-nunito text-[14px] md:text-[16px] text-[#E24F29] leading-[20.48px] text-center -tracking-2 group-hover:text-white'>Go to store</button>
+                        </Link>
+                    </div>
                 </div>
-            </div> */}
-
         </div>
     )
 }
