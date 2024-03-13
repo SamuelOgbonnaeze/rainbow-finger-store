@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css"
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 

@@ -30,7 +30,7 @@ const Nav = () => {
     if(!isMounted){}
 
     return (
-        <div className=' absolute w-full py-4 '>
+        <div className=' relative w-full py-4 '>
 
             <Container>
                 <div className={nav ? 'w-full h-full mx-auto flex items-center justify-between' : ' w-full h-full items-center justify-between flex'}>
@@ -48,7 +48,7 @@ const Nav = () => {
                     {/* Toggle button */}
                     <div className='block lg:hidden items-center text-[#FBFBFB]'>
                         <Link href='/' >
-                            {nav ? <AiOutlineClose onClick={handleNav} size={20} className=' mr-28 bg-[#DF3B11] md:text-gray-100 ' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] md:text-gray-100' />}
+                            {nav ? <AiOutlineClose onClick={handleNav} size={20} className=' mr-28 bg-[#DF3B11] md:text-gray-100 ' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] ' />}
                         </Link>
                     </div>
                     {/* mobile mode */}

@@ -18,18 +18,14 @@ interface ProductCardProps {
 
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
-
-
     const router = useRouter();
 
-
-
     const handleClick = () => {
-        router.push(`/product`);
+        router.push(`/product/${data.id}`); // Assuming data.id is the unique identifier for the product
     }
 
     return (
-        // <Link href='/product'>
+        <Link href={`/product/${data.id}`}>
 
             <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 ">
                 {/* Images and actions */}
@@ -75,7 +71,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
                     <Currency value={data?.price} />
                 </div>
             </div>
-        // </Link>
+        </Link>
     );
 }
 
