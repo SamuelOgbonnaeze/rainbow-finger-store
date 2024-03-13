@@ -1,16 +1,14 @@
-import getBillboard from "@/app/api/get-billboard";
-import Billboard from "@/components/billboard";
+
 import ProductHero from "../components/product-hero";
 
 
-const ProductPage = () => {
-  
+export default async function ProductPage() {
+
 
     return (
         <div>
-            <ProductHero  />
+            <ProductHero />
         </div>
     );
 }
 
-export default ProductPage;

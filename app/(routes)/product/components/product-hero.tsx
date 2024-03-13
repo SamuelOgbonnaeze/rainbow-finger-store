@@ -1,12 +1,10 @@
-import { cn } from "@/lib/utils";
-
 
 
 const ProductHero = () => {
     return (
         <div className="overflow-hidden">
             <div
-                className=" relative aspect-square overflow-hidden bg-cover md:aspect-[2.4/1] bg-center bg-no-repeat"
+                className=" relative h-[200px] sm:h-[250px] md:h-[300px] overflow-hidden bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: 'url("/images/productdetailshero.png")' }}
             >
             </div>

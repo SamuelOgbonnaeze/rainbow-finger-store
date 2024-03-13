@@ -1,20 +1,21 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { ShoppingCart } from 'lucide-react';
-
 import Link from 'next/link'
 import Image from 'next/image'
+import { useParams } from 'next/navigation';
 
 
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+import { ShoppingCart } from 'lucide-react';
 import Logo from '@/public/images/logo.png'
 import Container from '@/components/ui/container'
 import Button from '@/components/ui/button'
 
 
-const Nav = () => {
+const ProductNavbar = () => {
     const [nav, setNav] = useState(false)
+    const params= useParams()
 
 
     const handleNav = () => {
@@ -27,10 +28,10 @@ const Nav = () => {
         setIsMounted(true)
     }, [])
 
-    if(!isMounted){}
+    if (!isMounted) { }
 
     return (
-        <div className=' absolute w-full py-4 '>
+        <div className=' relative w-full py-4 '>
 
             <Container>
                 <div className={nav ? 'w-full h-full mx-auto flex items-center justify-between' : ' w-full h-full items-center justify-between flex'}>
@@ -47,9 +48,9 @@ const Nav = () => {
                     </div>
                     {/* Toggle button */}
                     <div className='block lg:hidden items-center text-[#FBFBFB]'>
-                        <Link href='/' >
-                            {nav ? <AiOutlineClose onClick={handleNav} size={20} className=' mr-28 bg-[#DF3B11] md:text-gray-100 ' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] ' />}
-                        </Link>
+                        {/* <Link href={`/product/${params.productId}`}> */}
+                            {nav ? <AiOutlineClose onClick={handleNav} size={20} className='mr-28 bg-[#DF3B11] md:text-gray-100 cursor-pointer' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] cursor-pointer' />}
+                        {/* </Link> */}
                     </div>
                     {/* mobile mode */}
                     <div className={nav ? 'absolute flex lg:hidden z-10 right-0 top-[0px] h-screen bg-white text-[#DF3B11] opacity-90' :
@@ -113,4 +114,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default ProductNavbar;
