@@ -20,14 +20,10 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
     const router = useRouter();
 
-    const handleClick = () => {
-        router.push(`/product/${data.id}`); // Assuming data.id is the unique identifier for the product
-    }
-
     return (
         <Link href={`/product/${data.id}`}>
 
-            <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 ">
+            <div  className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 ">
                 {/* Images and actions */}
                 <div className="aspect-square rounded-xl bg-gray-100 relative">
                     <Image
