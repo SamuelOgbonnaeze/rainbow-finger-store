@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@prisma/client": "^5.10.2",
     "clsx": "^2.1.0",
     "lucide-react": "^0.343.0",
