@@ -6,7 +6,7 @@ import Image from "next/image";
 import IconButton from "@/components/ui/icon-button";
 import { Expand, ShoppingCart } from "lucide-react";
 import Currency from "@/components/ui/currency";
-import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 
 
@@ -18,7 +18,6 @@ interface ProductCardProps {
 
 
 const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
-    const router = useRouter();
 
     return (
         <Link href={`/product/${data.id}`}>

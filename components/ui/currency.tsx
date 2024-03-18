@@ -16,11 +16,11 @@ const Currency: React.FC<CurrencyProps> = ({
 }) => {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => {
-        setIsMounted(true)
-    }, [])
+        setIsMounted(true);
+    }, []);
 
-    if (!isMounted) {
-        return null
+    if (!isMounted || !value) {
+        return null;
     }
     return (
         <div className="font-semibold">
