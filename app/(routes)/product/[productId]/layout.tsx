@@ -3,6 +3,7 @@ import React from "react";
 
 import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "@/app/globals.css"
+
 import Footer from "@/components/footer";
 import ProductNavbar from "../components/product-navbar";
 
@@ -32,7 +33,6 @@ export const metadata: Metadata = {
 };
 
 
-
 export default async function ProductPageLayout({
   children,
 }: Readonly<{
@@ -40,12 +40,12 @@ export default async function ProductPageLayout({
 }>) {
   return (
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
-    <body>
-  <ProductNavbar />
-      {children}
-      <Footer />
-    </body>
-  </html>
+      <body>
+        <ProductNavbar />
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 };
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { ShoppingCart } from 'lucide-react';
 
@@ -13,21 +13,15 @@ import Container from '@/components/ui/container'
 import Button from '@/components/ui/button'
 
 
-const Nav = () => {
+const Navbar = () => {
     const [nav, setNav] = useState(false)
-
 
     const handleNav = () => {
         setNav(!nav);
+       
     }
 
-    const [isMounted, setIsMounted] = useState(false)
 
-    useEffect(() => {
-        setIsMounted(true)
-    }, [])
-
-    if(!isMounted){}
 
     return (
         <div className=' absolute w-full py-4 '>
@@ -47,9 +41,7 @@ const Nav = () => {
                     </div>
                     {/* Toggle button */}
                     <div className='block lg:hidden items-center text-[#FBFBFB]'>
-                        <Link href='/' >
-                            {nav ? <AiOutlineClose onClick={handleNav} size={20} className=' mr-28 bg-[#DF3B11] md:text-gray-100 ' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] ' />}
-                        </Link>
+                        {nav ? <AiOutlineClose onClick={handleNav} size={20} className='mr-28 bg-[#DF3B11] md:text-gray-100 hover:cursor-pointer' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] hover:cursor-pointer' />}
                     </div>
                     {/* mobile mode */}
                     <div className={nav ? 'absolute flex lg:hidden z-10 right-0 top-[0px] h-screen bg-white text-[#DF3B11] opacity-90' :
@@ -90,19 +82,7 @@ const Nav = () => {
                                 <Link href='/' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
                                     <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Hub</p>
                                 </Link>
-                                <div className='ml-auto flex items-center gap-x-4'>
-                                    <Button className='flex items-center rounded-full px-4 py-2 bg-white'>
-                                        <ShoppingCart
-                                            size={20}
-                                            color='black'
-                                            className='hover:text-[#DF3B11]'
-                                        />
-                                        <span className='ml-2 font-medium text-sm text-black'>
-                                            0
-                                        </span>
-                                    </Button>
-
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -113,4 +93,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default Navbar;

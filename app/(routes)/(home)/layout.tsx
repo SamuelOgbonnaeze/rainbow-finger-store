@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 
 
 
+
 const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter'
@@ -42,7 +43,7 @@ export default async function RootLayout({
   return (
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
-        <Navbar />
+      <Navbar />
         {children}
         <Footer />
       </body>

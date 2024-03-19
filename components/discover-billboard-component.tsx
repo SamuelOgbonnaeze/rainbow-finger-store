@@ -5,7 +5,7 @@ export const revalidate = 0
 
 export const Billboards = async () => {
 
-    const billboard = await getBillboard("43a07cf8-11ca-425d-9199-bd2b887c69e6");
+    const billboard = await getBillboard("504c15ff-f16c-4cac-a75a-3f893449cd95");
 
     return (
         <div>

@@ -26,6 +26,7 @@ const Discover: React.FC<DiscoverProps> = ({
 
 
     const routes = data.map((route) => ({
+        key: route.id,
         href: '/',
         label: route.name,
         active: pathname === `category/${route.id}`
@@ -77,16 +78,15 @@ const Discover: React.FC<DiscoverProps> = ({
             </div>
 
 
-
             {/* go to store button */}
 
             <div className='w-[250px] mt-10 md:w-[393px] h-[46px] mx-auto rounded-[60px] border-solid border-[1px] border-[#E24F29] gap-[10px] px-[24px] py-[13px] hover:bg-[#E24F29] group cursor-pointer hover:scale-105 ease-in-out duration-300 flex items-center'>
-                    <div className=' flex items-center h-[20px] mx-auto '>
-                        <Link href='/' className='' >
-                            <button className='font-medium font-nunito text-[14px] md:text-[16px] text-[#E24F29] leading-[20.48px] text-center -tracking-2 group-hover:text-white'>Go to store</button>
-                        </Link>
-                    </div>
+                <div className=' flex items-center h-[20px] mx-auto '>
+                    <Link href='/' className='' >
+                        <button className='font-medium font-nunito text-[14px] md:text-[16px] text-[#E24F29] leading-[20.48px] text-center -tracking-2 group-hover:text-white'>Go to store</button>
+                    </Link>
                 </div>
+            </div>
         </div>
     )
 }

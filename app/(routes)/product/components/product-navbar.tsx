@@ -1,13 +1,13 @@
 "use client"
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useParams } from 'next/navigation';
-
-
+import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { ShoppingCart } from 'lucide-react';
+
+import Link from 'next/link'
+import Image from 'next/image'
+
+
 import Logo from '@/public/images/logo.png'
 import Container from '@/components/ui/container'
 import Button from '@/components/ui/button'
@@ -15,20 +15,13 @@ import Button from '@/components/ui/button'
 
 const ProductNavbar = () => {
     const [nav, setNav] = useState(false)
-    const params= useParams()
-
 
     const handleNav = () => {
         setNav(!nav);
+       
     }
 
-    const [isMounted, setIsMounted] = useState(false)
 
-    useEffect(() => {
-        setIsMounted(true)
-    }, [])
-
-    if (!isMounted) { }
 
     return (
         <div className=' relative w-full py-4 '>
@@ -48,9 +41,7 @@ const ProductNavbar = () => {
                     </div>
                     {/* Toggle button */}
                     <div className='block lg:hidden items-center text-[#FBFBFB]'>
-                        {/* <Link href={`/product/${params.productId}`}> */}
-                            {nav ? <AiOutlineClose onClick={handleNav} size={20} className='mr-28 bg-[#DF3B11] md:text-gray-100 cursor-pointer' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] cursor-pointer' />}
-                        {/* </Link> */}
+                        {nav ? <AiOutlineClose onClick={handleNav} size={20} className='mr-28 bg-[#DF3B11] md:text-gray-100 cursor-pointer' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] cursor-pointer' />}
                     </div>
                     {/* mobile mode */}
                     <div className={nav ? 'absolute flex lg:hidden z-10 right-0 top-[0px] h-screen bg-white text-[#DF3B11] opacity-90' :
