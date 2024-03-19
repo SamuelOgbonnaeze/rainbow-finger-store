@@ -1,24 +1,20 @@
 import prismadb from "@/lib/prismadb";
-import { Category } from "@/types";
+import { Brand } from "@/types";
 
-const getCategories = async (): Promise<Category[]> => {
+const getBrands = async (): Promise<Brand[]> => {
     try {
-        const categories = await prismadb.category.findMany({
-            include: {
-                billboard: true // Include the billboard information for each category
-            }
-        });
+        const brands = await prismadb.brand.findMany();
 
-        // Check if categories is an array and has at least one element
-        if (!Array.isArray(categories) || categories.length === 0) {
-            throw new Error("Categories not found");
+        // Check if sizes is an array and has at least one element
+        if (!Array.isArray(brands) || brands.length === 0) {
+            throw new Error("Brands not found");
         }
 
-        return categories; // Returning the fetched data
+        return brands; // Returning the fetched data
     } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching brands:", error);
         return []; // Return an empty array in case of an error
     }
 };
 
-export default getCategories;
+export default getBrands;
