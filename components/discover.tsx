@@ -26,8 +26,7 @@ const Discover: React.FC<DiscoverProps> = ({
 
 
     const routes = data.map((route) => ({
-        key: route.id,
-        href: '/',
+        href: `category/${route.id}`,
         label: route.name,
         active: pathname === `category/${route.id}`
     }))
