@@ -1,3 +1,5 @@
+import getBrands from "@/app/api/get-brands";
+import getColors from "@/app/api/get-colors";
 import getProducts from "@/app/api/get-products";
 import getSizes from "@/app/api/get-sizes";
 
@@ -24,8 +26,10 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params, searchParams 
     })
 
     const sizes= await getSizes();
-    
+    const brands= await getBrands();
+    const colors= await getColors();
    
+    console.log(colors)
 
     return (
         <div>
