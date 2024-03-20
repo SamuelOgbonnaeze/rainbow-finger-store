@@ -29,6 +29,10 @@ const Filter: React.FC<FilterProps> = ({
             ...current,
             [valueKey]: id
         };
+        
+        if(current[valueKey] === id){
+            query[valueKey]= null;
+        }
 
         const url = qs.stringifyUrl({
             url: window.location.href,
@@ -46,10 +50,13 @@ const Filter: React.FC<FilterProps> = ({
             <hr className="my-4" />
             <div className="flex flex-wrap gap-2">
                 {data.map((filter) => (
-                    <div key={filter.id} className="flex ">
+                    <div key={filter.id} className="flex items-center ">
                         <Button className={cn(
-"rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300"
-                        )} >
+                            "rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300",
+                            selectedValue === filter.id && "bg-[#E24F29] text-white"
+                        )}
+                        onClick={()=>onClick(filter.id)}
+                        >
                             {filter.name}
                         </Button>
                     </div>
