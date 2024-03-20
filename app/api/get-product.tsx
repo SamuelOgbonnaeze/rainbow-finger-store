@@ -1,6 +1,6 @@
 
 import prismadb from "@/lib/prismadb";
-import { Product } from "@/types";
+
 
 // Define async function to fetch product by ID
 const getProduct = async (id: string): Promise<any> => {
@@ -29,7 +29,7 @@ const getProduct = async (id: string): Promise<any> => {
         // Return the fetched product
         return res;
     } catch (error) {
-        // Log the actual error received from PrismaClient
+        // Log the actual error received from Prisma
         console.error("Error fetching Product:", error);
 
         // Rethrow the error for higher-level error handling

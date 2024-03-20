@@ -1,4 +1,4 @@
-import getCategories from "@/app/api/get-category";
+import getCategories from "@/app/api/get-categories";
 
 import Discover from "@/components/discover";
 import Experience from "@/components/experience";

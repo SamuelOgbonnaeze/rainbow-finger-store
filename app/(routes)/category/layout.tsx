@@ -29,7 +29,7 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Product - Rainbow Fingers",
+  title: "Category - Rainbow Fingers",
   description: "Your one-stop shop for all guitar accessories",
 };
 

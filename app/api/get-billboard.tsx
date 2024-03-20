@@ -15,7 +15,7 @@ const getBillboard = async (id: string): Promise<Billboard> => {
 
         return res; // Returning the fetched data
     } catch (error) {
-        // Log the actual error received from PrismaClient
+        // Log the actual error received from Prisma
         console.error("Error fetching billboard:", error);
 
         // Rethrow the error for higher-level error handling
