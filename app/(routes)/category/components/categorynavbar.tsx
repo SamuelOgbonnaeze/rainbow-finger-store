@@ -36,6 +36,7 @@ const CategoryNavbar = () => {
                                 width={114}
                                 height={47}
                                 alt=''
+                                priority={true}
                             />
                         </Link>
                     </div>
