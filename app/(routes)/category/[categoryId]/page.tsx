@@ -10,6 +10,7 @@ import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import Filter from "../components/filter";
 import MobileFilters from "../components/mobile-filters";
+import CategoryHero from "../components/category-hero"
 
 export const revalidate = 0;
 
@@ -42,10 +43,10 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params, searchParams 
 
     return (
         <div className="bg-white">
-            <Container>
-                {/* Add the hero section */}
-                Category page navbar
 
+            <CategoryHero />
+
+            <Container>
                 {/* main section */}
                 <div className="px-4 sm:px-6 lg:px-8 pb-24">
                     <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
