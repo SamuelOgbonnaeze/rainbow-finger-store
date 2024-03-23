@@ -2,7 +2,7 @@ import getProduct from "@/app/api/get-product";
 import getProducts from "@/app/api/get-products";
 
 
-import ProductHero from "../components/product-hero";
+import IndividualProductHero from "../components/individual-product-hero";
 import Container from "@/components/ui/container";
 import ProductList from "@/components/product-list";
 import Gallery from "@/components/gallery";
@@ -24,7 +24,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
 
     return (
         <div>
-            <ProductHero />
+            <IndividualProductHero />
             <Container>
                 <div className="px-4 py-10 sm:px-6 lg:px-8">
                     <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">

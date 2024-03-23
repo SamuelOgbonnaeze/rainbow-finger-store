@@ -8,8 +8,8 @@ import getSizes from "@/app/api/get-sizes";
 import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
-import Filter from "../components/filter";
-import MobileFilters from "../components/mobile-filters";
+import Filter from "@/components/filter";
+import MobileFilters from "@/components/mobile-filters";
 import CategoryHero from "../components/category-hero"
 
 export const revalidate = 0;
