@@ -6,6 +6,7 @@ import "@/app/globals.css"
 
 import Footer from "@/components/footer";
 import ProductNavbar from "./components/product-navbar";
+import ModalProvider from "@/providers/modal-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export default async function ProductPageLayout({
   return (
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
+        <ModalProvider />
         <ProductNavbar />
         {children}
         <Footer />

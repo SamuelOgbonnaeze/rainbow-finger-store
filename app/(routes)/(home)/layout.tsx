@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import React from "react";
+
 import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "@/app/globals.css"
+
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-
-
+import ModalProvider from "@/providers/modal-provider";
 
 
 const inter = Inter({
@@ -43,7 +45,8 @@ export default async function RootLayout({
   return (
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
-      <Navbar />
+        <ModalProvider />
+        <Navbar />
         {children}
         <Footer />
       </body>
