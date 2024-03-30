@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
-import { ShoppingCart } from 'lucide-react';
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,7 +9,7 @@ import Image from 'next/image'
 
 import Logo from '@/public/images/logo.png'
 import Container from '@/components/ui/container'
-import Button from '@/components/ui/button'
+import NavbarActions from '@/components/ui/navbar-actions';
 
 
 const ProductNavbar = () => {
@@ -52,16 +51,7 @@ const ProductNavbar = () => {
                             <li className=' p-2 '><Link href='/'> Hub </Link></li>
                             <li>
                                 <div className='mx-auto flex items-center gap-x-4'>
-                                    <Button className='flex items-center rounded-full px-4 py-2 bg-[#DF3B11] text-sm gap-1'>
-                                        <ShoppingCart
-                                            size={20}
-                                            color='white '
-                                            className=''
-                                        />
-                                        <span className='ml-2 font-medium text-sm '>
-                                            0
-                                        </span>
-                                    </Button>
+                                   <NavbarActions />
                                 </div>
                             </li>
                         </ul>
@@ -83,16 +73,7 @@ const ProductNavbar = () => {
                                     <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Hub</p>
                                 </Link>
                                 <div className='ml-auto flex items-center gap-x-4'>
-                                    <Button className='flex items-center rounded-full px-4 py-2 bg-white'>
-                                        <ShoppingCart
-                                            size={20}
-                                            color='black'
-                                            className='hover:text-[#DF3B11]'
-                                        />
-                                        <span className='ml-2 font-medium text-sm text-black'>
-                                            0
-                                        </span>
-                                    </Button>
+                                   <NavbarActions />
 
                                 </div>
                             </div>

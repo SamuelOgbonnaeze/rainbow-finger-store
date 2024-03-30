@@ -7,6 +7,7 @@ import "@/app/globals.css"
 import Footer from "@/components/footer";
 import CategoryNavbar from "./components/categorynavbar";
 import ModalProvider from "@/providers/modal-provider";
+import ToastProvider from "@/providers/toast-provider";
 
 
 const inter = Inter({
@@ -44,6 +45,7 @@ export default async function CategoryPageLayout({
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
         <ModalProvider />
+        <ToastProvider />
         <CategoryNavbar />
         {children}
         <Footer />

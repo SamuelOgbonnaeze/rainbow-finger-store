@@ -7,6 +7,7 @@ import "@/app/globals.css"
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
+import ToastProvider from "@/providers/toast-provider";
 
 
 const inter = Inter({
@@ -46,6 +47,7 @@ export default async function RootLayout({
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
         <ModalProvider />
+        <ToastProvider />
         <Navbar />
         {children}
         <Footer />

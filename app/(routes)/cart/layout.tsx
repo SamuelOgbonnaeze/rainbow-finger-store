@@ -5,7 +5,7 @@ import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "@/app/globals.css"
 
 import Footer from "@/components/footer";
-import ProductNavbar from "./components/product-navbar";
+import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 import ToastProvider from "@/providers/toast-provider";
 
@@ -30,12 +30,12 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Product - Rainbow Fingers",
+  title: "Cart - Rainbow Fingers",
   description: "Your one-stop shop for all guitar accessories",
 };
 
 
-export default async function ProductPageLayout({
+export default async function CartPageLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -45,7 +45,7 @@ export default async function ProductPageLayout({
       <body>
         <ModalProvider />
         <ToastProvider />
-        <ProductNavbar />
+        <Navbar />
         {children}
         <Footer />
       </body>
