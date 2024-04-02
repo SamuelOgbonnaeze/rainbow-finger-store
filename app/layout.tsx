@@ -5,9 +5,10 @@ import { Inter, Nunito, Lato, Hanken_Grotesk } from "next/font/google";
 import "@/app/globals.css"
 
 import Footer from "@/components/footer";
-import ProductNavbar from "./components/product-navbar";
+import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 import ToastProvider from "@/providers/toast-provider";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,27 +30,29 @@ const hankenGrotesk = Hanken_Grotesk({
   variable: '--font-hankenGrotesk'
 });
 
+
 export const metadata: Metadata = {
-  title: "Product - Rainbow Fingers",
+  title: "Rainbow Fingers",
   description: "Your one-stop shop for all guitar accessories",
 };
 
-
-export default async function ProductPageLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
         <ModalProvider />
         <ToastProvider />
-        <ProductNavbar />
+        <Navbar />
         {children}
         <Footer />
       </body>
     </html>
   );
-};
-
+}
+ 
