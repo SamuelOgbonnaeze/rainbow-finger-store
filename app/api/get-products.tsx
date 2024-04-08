@@ -1,7 +1,4 @@
-
 import { Product, Category, Size, Brand, Color, Image } from "@/types";
-import prismadb from "@/lib/prismadb";
-
 
 interface Query {
     categoryId?: string;
@@ -11,43 +8,38 @@ interface Query {
     isFeatured?: boolean;
 }
 
-const getProducts = async (query: Query): Promise<Product[]> => {
-    const queryParams = {
-        where: {
-            colorId: query.colorId,
-            sizeId: query.sizeId,
-            brandId: query.brandId,
-            categoryId: query.categoryId,
-            isFeatured: query.isFeatured,
-        },
-        include: {
-            category: true,
-            size: true,
-            brand: true,
-            color: true,
-            images: true,
-        }
-    };
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
+const getProducts = async (query: Query): Promise<Product[]> => {
     try {
-        const products = await prismadb.product.findMany(queryParams);
+        // Construct the URL with query parameters
+        const queryParams = `?${Object.entries(query)
+            .filter(([_, value]) => value !== undefined)
+            .map(([key, value]) => `${key}=${encodeURIComponent(value.toString())}`)
+            .join("&")}`;
+        const productsUrl = `${URL}${queryParams}`;
+
+        // Fetch products from the API
+        const response = await fetch(productsUrl);
+        const products = await response.json();
+
         // Check if products is an array and has at least one element
         if (!Array.isArray(products) || products.length === 0) {
             throw new Error("Products not found");
         }
 
-        // Assuming you have a function to map products to the Product type
+        // Map the fetched products to the Product type
         const mappedProducts = mapProductsToProductType(products);
 
-
-        return mappedProducts; // Returning the fetched data
+        // Return the mapped products
+        return mappedProducts;
     } catch (error) {
         console.error("Error fetching products:", error);
         return []; // Return an empty array in case of an error
     }
 };
 
-// Assuming you have a function to map products to the Product type
+// Map the fetched products to the Product type
 const mapProductsToProductType = (products: any[]): Product[] => {
     return products.map(product => ({
         id: product.id,

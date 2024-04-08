@@ -1,30 +1,24 @@
-import prismadb from "@/lib/prismadb";
-
+import { Category } from "@/types";
 
 // Define async function to fetch product by ID
-const getCategory = async (id: string): Promise<any> => {
+const getCategory = async (id: string): Promise<Category> => {
+    const URL = `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`;
+
     try {
         // Fetch product from database
-        const res = await prismadb.category.findUniqueOrThrow({
-            where: {
-                id: id,
-            },
-            // Include related entities in the response
-            include: {
-               billboard: true,
-            }
-        });
+        const res = await fetch(URL);
+        const data = await res.json();
 
         // Check if category was found
-        if (!res) {
-            // If product not found, throw an error
+        if (data === null || data === undefined) {
+            // If category not found, throw an error
             throw new Error("Category not found");
         }
 
         // Return the fetched category
-        return res;
+        return data;
     } catch (error) {
-        // Log the actual error received from Prisma
+        // Log the actual error received from the fetch call
         console.error("Error fetching category:", error);
 
         // Rethrow the error for higher-level error handling
@@ -32,5 +26,5 @@ const getCategory = async (id: string): Promise<any> => {
     }
 };
 
-// Export the getProduct function
+// Export the getCategory function
 export default getCategory;

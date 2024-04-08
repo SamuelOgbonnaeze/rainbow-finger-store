@@ -1,11 +1,13 @@
-import prismadb from "@/lib/prismadb";
 import { Brand } from "@/types";
+
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/brands`;
 
 const getBrands = async (): Promise<Brand[]> => {
     try {
-        const brands = await prismadb.brand.findMany();
+        const data = await fetch(URL);
+        const brands = await data.json();
 
-        // Check if sizes is an array and has at least one element
+        // Check if brands is an array and has at least one element
         if (!Array.isArray(brands) || brands.length === 0) {
             throw new Error("Brands not found");
         }

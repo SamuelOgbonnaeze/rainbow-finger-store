@@ -47,7 +47,7 @@ const Navbar = () => {
                         'absolute hidden'}>
                         <ul className='flex flex-col w-full gap-y-6 items-center mt-40 lg:justify-center text-center font-inter font-normal text-[18px] leading-[32px] p-2'>
                             <li className=' p-2 '><Link href='/Lessons'> Lessons </Link></li>
-                            <li className=' p-2'><Link href='/Product'> Store </Link></li>
+                            <li className=' p-2'><Link href='/product'> Store </Link></li>
                             <li className=' p-2 '><Link href='/'> Hub </Link></li>
                             <li>
                                 <div className='mx-auto flex items-center gap-x-4'>
@@ -66,7 +66,7 @@ const Navbar = () => {
                                 <Link href='/Lessons' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
                                     <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Lessons</p>
                                 </Link>
-                                <Link href='/Product' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
+                                <Link href='/product' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
                                     <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Store</p>
                                 </Link>
                                 <Link href='/' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>

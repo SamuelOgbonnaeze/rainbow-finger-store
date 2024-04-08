@@ -1,21 +1,22 @@
-import prismadb from "@/lib/prismadb";
 import { Billboard } from "@/types";
 
 const getBillboard = async (id: string): Promise<Billboard> => {
-    try {
-        const res = await prismadb.billboard.findUnique({
-            where: {
-                id: id,
-            }
-        });
+    // Construct the URL for fetching billboard data
+    const URL = `${process.env.NEXT_PUBLIC_API_URL}/billboards/${id}`;
 
-        if (!res) {
+    try {
+        // Fetch billboard data from the API
+        const res = await fetch(URL);
+        const billboard = await res.json();
+
+        // Check if the response contains data
+        if (!billboard) {
             throw new Error("Billboard not found");
         }
 
-        return res; // Returning the fetched data
+        // Return the fetched billboard data
+        return billboard;
     } catch (error) {
-        // Log the actual error received from Prisma
         console.error("Error fetching billboard:", error);
 
         // Rethrow the error for higher-level error handling
