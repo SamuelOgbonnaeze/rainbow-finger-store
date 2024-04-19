@@ -1,3 +1,4 @@
+
 import getCategories from "@/app/api/get-categories";
 
 import Discover from "@/components/discover";
@@ -9,10 +10,9 @@ import Hero from "@/components/hero";
 
 export const revalidate = 0
 
-export default async function HomePage() {
+const HomePage = async () => {
+
   const categories = await getCategories();
-
-
 
   return (
 
@@ -26,3 +26,6 @@ export default async function HomePage() {
     </div>
   );
 }
+
+
+export default HomePage;
