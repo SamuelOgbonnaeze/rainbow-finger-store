@@ -37,12 +37,12 @@ const Footer = () => {
                                 size={20}
                             />
                         </Link>
-                        <Link href='/'>
+                        <Link href='https://www.instagram.com/rainbowfingersacademy?igsh=cjg4ZTZsZzA2dXcw'>
                             <AiFillInstagram
                                 size={20}
                             />
                         </Link>
-                        <Link href='/'>
+                        <Link href='https://www.facebook.com/share/pjZBbDYDWsRzg8Mw/?mibextid=LQQJ4d'>
                             <FaFacebookF
                                 size={20}
                             />

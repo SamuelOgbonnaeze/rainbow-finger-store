@@ -6,8 +6,6 @@ import { Category } from '@/types'
 import Link from 'next/link'
 
 
-import Image from 'next/image'
-
 import { Billboards } from './discover-billboard-component'
 import { Product } from './discover-product-component'
 
