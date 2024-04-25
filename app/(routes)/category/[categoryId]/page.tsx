@@ -37,9 +37,6 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params, searchParams 
     const sizes = await getSizes();
     const brands = await getBrands();
     const colors = await getColors();
-    const category = await getCategory(params.categoryId)
-
-
 
     return (
         <div className="bg-white">

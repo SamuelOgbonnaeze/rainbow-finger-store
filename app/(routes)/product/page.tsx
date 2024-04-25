@@ -11,12 +11,15 @@ import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import Filter from "@/components/filter";
 import MobileFilters from "@/components/mobile-filters";
+import getCategories from "@/app/api/get-categories";
+import ProductMobileFilters from "./components/product-mobile-filters";
 
 
 export const revalidate = 0;
 
 interface ProductPageProps {
     searchParams: {
+        categoryId: string,
         brandId: string;
         colorId: string;
         sizeId: string;
@@ -26,11 +29,13 @@ interface ProductPageProps {
 const ProductPage: React.FC<ProductPageProps> = async ({ searchParams }) => {
 
     const products = await getProducts({
+        categoryId: searchParams.categoryId,
         brandId: searchParams.brandId,
         colorId: searchParams.colorId,
         sizeId: searchParams.sizeId,
     })
 
+    const categories = await getCategories();
     const sizes = await getSizes();
     const brands = await getBrands();
     const colors = await getColors();
@@ -43,9 +48,14 @@ const ProductPage: React.FC<ProductPageProps> = async ({ searchParams }) => {
                     <div className="px-4 sm:px-6 lg:px-8 pb-24">
                         <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
                             {/* Add Mobile Filters */}
-                            <MobileFilters brands={brands} sizes={sizes} colors={colors} />
+                            <ProductMobileFilters brands={brands} sizes={sizes} colors={colors} categories={categories} />
                             {/* Add Desktop Filters */}
                             <div className="hidden lg:block">
+                                <Filter
+                                    valueKey="categoryId"
+                                    name="Categories"
+                                    data={categories}
+                                />
                                 <Filter
                                     valueKey="brandId"
                                     name="Brands"

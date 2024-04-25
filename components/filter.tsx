@@ -1,7 +1,7 @@
 "use client"
 import qs from "query-string"
 
-import { Size, Color, Brand } from "@/types";
+import { Size, Color, Brand, Category } from "@/types";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import Button from "@/components/ui/button";
@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 
 interface FilterProps {
-    data: (Size | Color | Brand)[];
+    data: (Size | Color | Brand| Category)[];
     name: string;
     valueKey: string;
 }

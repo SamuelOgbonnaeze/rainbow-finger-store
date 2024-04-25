@@ -1,9 +1,8 @@
 "use client "
 
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
-import { useSearchParams } from "next/navigation";
 
 import useCart from "@/hooks/use-cart";
 import Currency from "@/components/ui/currency";

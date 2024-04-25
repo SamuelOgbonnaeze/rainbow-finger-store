@@ -23,7 +23,7 @@ const Navbar = () => {
 
 
     return (
-        <div className=' relative w-full py-4 '>
+        <div className=' relative w-full py-4 font-semibold '>
 
             <Container>
                 <div className={nav ? 'w-full h-full mx-auto flex items-center justify-between' : ' w-full h-full items-center justify-between flex'}>

@@ -3,25 +3,25 @@
 import { useState } from "react";
 import { Plus, X } from "lucide-react";
 
-import { Brand, Size, Color } from "@/types";
+import { Brand, Size, Color, Category } from "@/types";
 import Button from "@/components/ui/button";
 import { Dialog } from "@headlessui/react";
 import IconButton from "@/components/ui/icon-button";
-import Filter from "./filter";
+import Filter from "@/components/filter";
 
-interface MobileFiltersProps {
+interface ProductMobileFiltersProps {
     brands: Brand[];
     sizes: Size[];
     colors: Color[];
-    
+    categories: Category[];
 }
 
 
-const MobileFilters: React.FC<MobileFiltersProps> = ({
+const ProductMobileFilters: React.FC<ProductMobileFiltersProps> = ({
     brands,
     sizes,
     colors,
-   
+    categories,
 }) => {
     const [open, setOpen] = useState(false);
 
@@ -51,6 +51,11 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
 
                         {/* Render filters */}
                         <div className="p-4">
+                        <Filter
+                                valueKey="categoryId"
+                                name="Categories"
+                                data={categories}
+                            />
                             <Filter
                                 valueKey="brandId"
                                 name="Brands"
@@ -74,4 +79,4 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
     );
 }
 
-export default MobileFilters;
+export default ProductMobileFilters;
