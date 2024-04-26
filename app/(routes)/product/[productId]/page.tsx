@@ -27,7 +27,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
             <IndividualProductHero />
             <Container>
                 <div className="px-4 py-10 sm:px-6 lg:px-8">
-                    <div className="md:grid md:grid-cols-2 md:items-start md:gap-x-8">
+                    <div className="sm:grid sm:grid-cols-2 sm:items-start sm:gap-x-8">
                         {/* Gallery */}
                         <Gallery images={product.images} />
                         {/* Info section */}

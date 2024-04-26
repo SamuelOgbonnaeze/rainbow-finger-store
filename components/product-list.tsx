@@ -27,7 +27,7 @@ const ProductList: React.FC<ProductListProps> = ({
     const randomItems = shuffleArray(items).slice(0, 4);
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-4 px-4">
             <h3 className="font-bold text-3xl">{title}</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {randomItems.map((item) => (
