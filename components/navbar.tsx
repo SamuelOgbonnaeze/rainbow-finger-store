@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
+
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,15 +10,17 @@ import Image from 'next/image'
 import Logo from '@/public/images/logo.png'
 import Container from '@/components/ui/container'
 import NavbarActions from '@/components/ui/navbar-actions';
+import Button from './ui/button'
+import { Menu, X } from 'lucide-react'
+import { Dialog } from '@headlessui/react'
+import IconButton from './ui/icon-button'
 
 
 const Navbar = () => {
-    const [nav, setNav] = useState(false)
+    const [open, setOpen] = useState(false)
 
-    const handleNav = () => {
-        setNav(!nav);
-
-    }
+    const onOpen = () => setOpen(true);
+    const onClose = () => setOpen(false)
 
 
 
@@ -26,7 +28,7 @@ const Navbar = () => {
         <div className=' relative w-full py-4 font-semibold '>
 
             <Container>
-                <div className={nav ? 'w-full h-full mx-auto flex items-center justify-between' : ' w-full h-full items-center justify-between flex'}>
+                <div className={open ? 'w-full h-full mx-auto flex items-center justify-between' : ' w-full h-full items-center justify-between flex'}>
                     {/* nav logo */}
                     <div className='ml-2  md:ml-6 lg:ml-[100px]'>
                         <Link href='/' className='flex items-center ml-4 lg:ml-2'>
@@ -38,27 +40,46 @@ const Navbar = () => {
                             />
                         </Link>
                     </div>
+
+
                     {/* Toggle button */}
-                    <div className='block lg:hidden items-center text-[#FBFBFB]'>
-                        {nav ? <AiOutlineClose onClick={handleNav} size={20} className='mr-28 bg-[#DF3B11] md:text-gray-100 cursor-pointer' /> : <AiOutlineMenu onClick={handleNav} size={20} className='mr-16 text-[#DF3B11] cursor-pointer' />}
+                    <div onClick={onOpen} className="flex items-center gap-x-2 mr-16 lg:hidden text-[#DF3B11]">
+                        <Menu size={20} />
                     </div>
-                    {/* mobile mode */}
-                    <div className={nav ? 'absolute flex lg:hidden z-10 right-0 top-[0px] h-screen bg-white text-[#DF3B11] opacity-90' :
-                        'absolute hidden'}>
-                        <ul className='flex flex-col w-full gap-y-6 items-center mt-40 lg:justify-center text-center font-inter font-normal text-[18px] leading-[32px] p-2'>
-                            <li className=' p-2'><Link href='/'> Home </Link></li>
-                            <li className=' p-2'><Link href='/product'> Store </Link></li>
-                            <li>
-                                <div className='mx-auto flex items-center gap-x-4'>
-                                    <NavbarActions />
+
+                    <Dialog open={open} as="div" className="relative z-40 lg:hidden " onClose={onClose}>
+                        {/* Background */}
+                        <div className="fixed inset-0 bg-black bg-opacity-25 " />
+
+                        {/* Dialog Position */}
+                        <div className="fixed inset-0 z-40 flex">
+                            <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-[100px] flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+
+                                {/* Close Button */}
+                                <div className="flex items-center justify-end px-4 text-[#DF3B11]">
+                                    <IconButton className="border-[#DF3B11]" icon={<X size={15} onClick={onClose} />} />
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
+
+                                {/* Mobile Navbar sections */}
+                                <div className=' flex top-[0px] h-screen text-[#DF3B11] ' >
+                                    <ul className='flex flex-col w-full gap-y-6 items-center mt-40 text-center font-inter font-normal text-[18px] leading-[32px] p-2'>
+                                        <li className=' p-2'><Link href='/'> Home </Link></li>
+                                        <li className=' p-2'><Link href='/product'> Store </Link></li>
+                                        <li>
+                                            <div className='mx-auto flex items-center gap-x-4'>
+                                                <NavbarActions />
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </Dialog.Panel>
+                        </div>
+                    </Dialog>
+
 
 
                     {/* Desktop Menu */}
-                    <div className={nav ? 'hidden ' : 'hidden lg:flex items-center justify-between  w-full'} >
+                    <div className={open ? 'hidden ' : 'hidden lg:flex items-center justify-between  w-full'} >
                         {/* left side */}
                         <div className='container'>
                             <div className=' ml-[45px]  h-[32px] gap-x-[24px] items-center flex'>

@@ -29,9 +29,11 @@ const LeftSection = () => {
                     <BsSearch className='my-4 ml-[25px] w-[15px] lg:w-[20px] h-[19.2px] bg-white' />
                     <input type='text' placeholder='Search' className='w-full rounded-[50px] font-normal border-0 font-hanken items-center' />
                 </div>
-                <div className='flex justify-normal'>
-                    <button className='w-[80%] md:w-49 lg:w-[295px] lg:h-[48px] bg-[#E24F29] px-3 text-white rounded-[60px] gap-[10px] py-2 lg:py-3 font-nunito text-[16px] md:text-[18px]'>Start shopping now</button>
-                </div>
+                <Link href="/product">
+                    <div className='flex justify-normal'>
+                        <button className='w-[80%] md:w-49 lg:w-[295px] lg:h-[48px] bg-[#E24F29] px-3 text-white rounded-[60px] gap-[10px] py-2 lg:py-3 font-nunito text-[16px] md:text-[18px]'>Start shopping now</button>
+                    </div>
+                </Link>
             </div>
         </div>
     );
