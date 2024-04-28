@@ -1,6 +1,9 @@
-import { Product } from "@/types";
-import ProductCard from "./ui/product-card";
+import { Suspense, lazy } from 'react';
 
+import { Product } from "@/types";
+import { SkeletonCard } from './skeleton-card';
+
+const ProductCard = lazy(() => import('@/components/ui/product-card'));
 
 interface ProductListProps {
     title: string;
@@ -11,9 +14,9 @@ const ProductList: React.FC<ProductListProps> = ({
     title, items
 }) => {
 
-   
-   
-  
+
+
+
     // Function to shuffle the array
     const shuffleArray = (array: Product[]) => {
         for (let i = array.length - 1; i > 0; i--) {
@@ -32,7 +35,9 @@ const ProductList: React.FC<ProductListProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {randomItems.map((item) => (
                     <div key={item.id}>
-                        <ProductCard key={item.id} data={item} />
+                        <Suspense fallback={<SkeletonCard />}>
+                            <ProductCard key={item.id} data={item} />
+                        </Suspense>
                     </div>
                 ))}
             </div>

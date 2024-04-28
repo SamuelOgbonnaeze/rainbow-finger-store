@@ -2,6 +2,7 @@ import DiscoverPlug from "@/components/discover-plug";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
 import HomeProductDisplay from "@/components/home-product-display";
+import { SkeletonCard } from "@/components/skeleton-card";
 
 const HomePage =  () => {
   return (

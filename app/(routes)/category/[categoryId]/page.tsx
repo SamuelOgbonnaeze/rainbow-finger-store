@@ -1,5 +1,6 @@
+import { Suspense, lazy } from 'react';
+
 import getBrands from "@/app/api/get-brands";
-import getCategory from "@/app/api/get-category";
 import getColors from "@/app/api/get-colors";
 import getProducts from "@/app/api/get-products";
 import getSizes from "@/app/api/get-sizes";
@@ -7,10 +8,12 @@ import getSizes from "@/app/api/get-sizes";
 
 import Container from "@/components/ui/container";
 import NoResults from "@/components/ui/no-results";
-import ProductCard from "@/components/ui/product-card";
 import Filter from "@/components/filter";
 import MobileFilters from "@/components/mobile-filters";
 import CategoryHero from "../components/category-hero"
+import { SkeletonCard } from '@/components/skeleton-card';
+
+const ProductCard = lazy(() => import('@/components/ui/product-card'));
 
 export const revalidate = 0;
 
@@ -71,10 +74,15 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({ params, searchParams 
                             {products.length === 0 && <NoResults />}
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                 {products.map((item) => (
-                                    <ProductCard
-                                        key={item.id}
-                                        data={item}
-                                    />
+                                    <div key={item.id}>
+                                        <Suspense fallback={<SkeletonCard />}>
+                                            <ProductCard
+                                                key={item.id}
+                                                data={item}
+                                            />
+                                        </Suspense>
+                                    </div>
+
                                 ))}
                             </div>
                         </div>
