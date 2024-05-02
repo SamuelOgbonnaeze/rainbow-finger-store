@@ -31,8 +31,8 @@ const ProductList: React.FC<ProductListProps> = ({
 
     return (
         <div className="space-y-4 px-4">
-            <h3 className="font-bold text-3xl">{title}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <h3 className="font-bold text-2xl md:text-3xl">{title}</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {randomItems.map((item) => (
                     <div key={item.id}>
                         <Suspense fallback={<SkeletonCard />}>

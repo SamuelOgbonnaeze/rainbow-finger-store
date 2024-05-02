@@ -32,7 +32,7 @@ const Discover: React.FC<DiscoverProps> = ({
 
 
     return (
-        <div className='w-full text-[#050304] font-nunito '>
+        <div className='w-full text-[#050304] font-nunito mb-2'>
             {/* discover Heading */}
             <div className='mt-10 w-full  opacity-500 mx-auto '>
                 <div className='bg-[url("/images/musical-note.png")] bg-cover bg-no-repeat bg-center text-center items-center'>
@@ -48,16 +48,14 @@ const Discover: React.FC<DiscoverProps> = ({
             </div>
 
             {/* Discover Guitar */}
-            <div className='w-[350px] md:w-[629px]  grid grid-cols-2 md:grid-cols-3 gap-[29px] mt-5 md:mt-10 mx-auto justify-between '>
+            <div className='w-[350px] md:w-[650px]  grid grid-cols-2 md:grid-cols-4 gap-2 mt-5 md:mt-10 mx-auto justify-between '>
                 {routes.map((route) => (
                     <Link
                         key={route.href}
                         href={route.href}
                     >
-                        <div className={cn(' h-[50px]  px-[24px] py-[13px] gap-[10px] rounded-[60px] hover:border-[#DF3B11] hover:text-[#E24F29] hover:border-solid hover:border-b-[4px] justify-center flex  group ',
-                            route.active ? "border-[#DF3B11] text-[#E24F29]" : "text-[#363F5E]"
-                        )}>
-                            <p className=' h-[20px] -tracking-2 text-[16px] leading-[20.48px]text-center font-nunito font-normal  '>{route.label}</p>
+                        <div className='  w-full  px-4 py-3 gap-2 rounded-[60px] hover:border-[#DF3B11] hover:text-[#E24F29] hover:border-solid hover:border-b-2 justify-center flex  group '>
+                            <p className='w-full h-[20px] -tracking-2 text-[16px] leading-[20.48px] text-center font-nunito font-normal  '>{route.label}</p>
                         </div>
                     </Link>
                 ))}

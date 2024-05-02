@@ -29,9 +29,11 @@ const LeftSection = () => {
 
                 <Link href="/product">
                     <div className='flex w-[200px] md:w-[295px] lg:h-[48px] justify-normal'>
-                        <button className='flex w-full h-full bg-[#E24F29] px-3 text-white rounded-[60px] gap-[10px] py-2 lg:py-3 font-nunito text-[16px] md:text-[18px]'>
-                            <ShoppingCart width={20} />
-                            Start shopping now
+                        <button className='flex items-center w-full h-full bg-[#E24F29] px-3 text-white rounded-[60px] gap-[10px] py-2 lg:py-3 font-nunito text-[16px] md:text-[18px]'>
+                            <span className='flex gap-x-2  mx-auto'>
+                                <ShoppingCart width={20} />
+                                Start shopping now
+                            </span>
 
                         </button>
                     </div>
