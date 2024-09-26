@@ -5,6 +5,7 @@ import { ShoppingCart } from "lucide-react";
 
 import Button from "./button";
 import { useRouter } from "next/navigation";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 const NavbarActions = () => {
     const router = useRouter();
@@ -22,7 +23,16 @@ const NavbarActions = () => {
 
 
     return (
-        <div>
+        <div className="flex items-center gap-x-3">
+            <div className="text-gray-400">
+                <SignedOut>
+                    <SignInButton />
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
+            </div>
+
             <Button onClick={() => router.push("/cart")} className='flex items-center rounded-full px-4 py-2 bg-white'>
                 <ShoppingCart
                     size={20}

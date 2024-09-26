@@ -1,6 +1,7 @@
 import getBillboard from "@/app/api/get-billboard";
 
 import Billboard from "@/components/billboard";
+
 export const revalidate = 0
 
 export const Billboards = async () => {

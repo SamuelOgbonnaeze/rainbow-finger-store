@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 import ToastProvider from "@/providers/toast-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 const inter = Inter({
@@ -44,6 +45,7 @@ export default async function RootLayout({
 
 
   return (
+    <ClerkProvider>
     <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
       <body>
         <ModalProvider />
@@ -53,6 +55,7 @@ export default async function RootLayout({
         <Footer />
       </body>
     </html>
+    </ClerkProvider>
   );
 }
  
