@@ -80,7 +80,7 @@ const LessonNavbar = () => {
 
 
                     {/* Desktop Menu */}
-                    <div className={open ? 'hidden ' : 'hidden lg:flex items-center justify-between  w-full'} >
+                    <div className={open ? 'hidden ' : 'hidden lg:flex items-center justify-between text-gray-400  w-full'} >
                         {/* left side */}
                         <div className='container'>
                             <div className=' ml-[45px]  h-[32px] gap-x-[24px] items-center flex'>
