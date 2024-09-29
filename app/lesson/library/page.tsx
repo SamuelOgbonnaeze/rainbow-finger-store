@@ -17,7 +17,7 @@ const LessonLibrary = async () => {
                 </div>
             </div>
 
-            <div className="p-4">
+            <div className="p-4 bg-white -mt-[40px] rounded-full ">
                 <LessonCategories
                     items={categories}
                 />
