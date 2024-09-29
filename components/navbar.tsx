@@ -14,6 +14,7 @@ import Button from './ui/button'
 import { Menu, X } from 'lucide-react'
 import { Dialog } from '@headlessui/react'
 import IconButton from './ui/icon-button'
+import { usePathname } from 'next/navigation'
 
 
 const Navbar = () => {
@@ -21,6 +22,7 @@ const Navbar = () => {
 
     const onOpen = () => setOpen(true);
     const onClose = () => setOpen(false)
+
 
 
 
