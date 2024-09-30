@@ -39,7 +39,7 @@ const LessonBanner = async () => {
             {/* If User is Not Signed In */}
             {!userId && (
                 <div className="bg-[url('/images/virtuoso_guitar.png')] bg-cover bg-no-repeat bg-center items-center h-[480px] w-full rounded-md">
-                    <div className="text-white flex flex-col pt-[180px] pl-[84px]">
+                    <div className="text-black flex flex-col pt-[180px] pl-[84px]">
                         <h2 className="font-nunito font-normal text-[64px] leading-[77px] p-3">My learning</h2>
                         <p className="font-nunito font-normal text-[20px] leading-[31px] p-3">Courses & Wishlist</p>
                     </div>
