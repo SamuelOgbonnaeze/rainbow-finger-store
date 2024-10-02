@@ -1,4 +1,4 @@
-generator client {
+generator client { 
   provider = "prisma-client-js"
 }
 
@@ -170,8 +170,10 @@ model Course {
   chapters         Chapter[]
   courseCategory   CourseCategory? @relation(fields: [courseCategoryId], references: [id])
   store            Store           @relation("StoreToCourse", fields: [storeId], references: [id])
+  purchases        Purchase[]
 
   @@index([courseCategoryId])
+  
 }
 
 model CourseCategory {
@@ -229,4 +231,24 @@ model UserProgress {
 
   @@unique([userId, chapterId])
   @@index([chapterId])
+}
+
+model Purchase {
+  id        String   @id @default(uuid())
+  userId    String
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([courseId])
+}
+
+model PaystackCustomer {
+  id                 String @id @default(uuid())
+  userId             String @unique
+  paystackCustomerId String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

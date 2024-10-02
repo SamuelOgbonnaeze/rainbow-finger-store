@@ -1,13 +1,41 @@
 import prismadb from "@/lib/prismadb";
 import LessonCategories from "./_components/categories";
 import { SearchInput } from "@/components/search-input";
+import { getCourses } from "@/actions/get-courses";
+import { auth } from "@clerk/nextjs/server";
+import CoursesList from "@/components/courses-list";
 
-const LessonLibrary = async () => {
+import { redirect } from "next/navigation";
+import SignInToast from "@/components/signin-toast";
+import toast from "react-hot-toast";
 
-    const categories = await prismadb.courseCategory.findMany({
+interface LessonLibraryProps{
+    searchParams:{
+        title:string;
+        courseCategory:string;
+    }
+}
+
+const LessonLibrary = async ({searchParams}: LessonLibraryProps) => {
+    const {userId} = auth()
+
+    if (!userId) {
+        return (
+            <>
+              <SignInToast message="Please sign in to access the lesson library." />
+            </>
+          );
+      }
+
+    const courseCategories = await prismadb.courseCategory.findMany({
         orderBy: {
             name: 'asc',
         }
+    })
+
+    const courses = await getCourses({
+        userId,  
+        ...searchParams,  
     })
 
     return (
@@ -19,8 +47,11 @@ const LessonLibrary = async () => {
 
             <div className="p-4 bg-white -mt-[40px] rounded-full ">
                 <LessonCategories
-                    items={categories}
+                    items={courseCategories}
                 />
+            </div>
+            <div className="p-4 bg-white mt-10 ">
+                <CoursesList items={courses} />
             </div>
 
             <div className="px-6 pt-3 lg:hidden lg:mb-0 block">

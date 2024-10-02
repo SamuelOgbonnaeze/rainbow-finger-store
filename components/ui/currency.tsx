@@ -23,7 +23,7 @@ const Currency: React.FC<CurrencyProps> = ({
         return null;
     }
     return (
-        <div className="font-semibold">
+        <div className="font-medium text-md md:text-sm text-slate-700">
             {formatter.format(Number(value))}
         </div>
     );

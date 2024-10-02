@@ -22,7 +22,7 @@ const iconMap: Record<CourseCategory["name"], IconType> = {
 const LessonCategories = ({ items }: LessonCategoriesProps) => {
     return (
 
-        <div className="flex items-center gap-x-2 overflow-x-auto pb-2">
+        <div className="flex items-center gap-x-2 overflow-x-auto pb-2 hide-scrollbar">
         {items.map((item) =>(
             <LessonCategoryItem
             key={item.id}
