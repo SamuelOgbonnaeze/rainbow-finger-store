@@ -9,23 +9,23 @@ import { redirect } from "next/navigation";
 import SignInToast from "@/components/signin-toast";
 import toast from "react-hot-toast";
 
-interface LessonLibraryProps{
-    searchParams:{
-        title:string;
-        courseCategory:string;
+interface LessonLibraryProps {
+    searchParams: {
+        title: string;
+        courseCategory: string;
     }
 }
 
-const LessonLibrary = async ({searchParams}: LessonLibraryProps) => {
-    const {userId} = auth()
+const LessonLibrary = async ({ searchParams }: LessonLibraryProps) => {
+    const { userId } = auth()
 
     if (!userId) {
         return (
             <>
-              <SignInToast message="Please sign in to access the lesson library." />
+                <SignInToast message="Please sign in to access the lesson library." />
             </>
-          );
-      }
+        );
+    }
 
     const courseCategories = await prismadb.courseCategory.findMany({
         orderBy: {
@@ -34,8 +34,8 @@ const LessonLibrary = async ({searchParams}: LessonLibraryProps) => {
     })
 
     const courses = await getCourses({
-        userId,  
-        ...searchParams,  
+        userId,
+        ...searchParams,
     })
 
     return (
@@ -50,13 +50,14 @@ const LessonLibrary = async ({searchParams}: LessonLibraryProps) => {
                     items={courseCategories}
                 />
             </div>
-            <div className="p-4 bg-white mt-10 ">
-                <CoursesList items={courses} />
-            </div>
-
             <div className="px-6 pt-3 lg:hidden lg:mb-0 block">
                 <SearchInput />
             </div>
+            <div className="p-4 bg-white space-y-4 ">
+                <CoursesList items={courses} />
+            </div>
+
+
         </>
     );
 }

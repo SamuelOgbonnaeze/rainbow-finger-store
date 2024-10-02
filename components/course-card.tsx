@@ -19,7 +19,7 @@ const CourseCard = ({
     id, title, imageUrl, chaptersLength, price, progress, courseCategory
 }: CourseCardProps) => {
     return (
-        <Link href={`/courses/{id}`}>
+        <Link href={`/courses/${id}`}>
             <div className="group hover:shadow-sm hover:scale-105 transition overflow-hidden border rounded-lg p-3 h-full">
                 <div className="relative w-full aspect-video rounded-md overflow-hidden">
                     <Image

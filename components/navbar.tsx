@@ -63,7 +63,7 @@ const Navbar = () => {
                                 </div>
 
                                 {/* Mobile Navbar sections */}
-                                <div className=' flex top-[0px] h-screen text-[#DF3B11] ' >
+                                <div className=' flex top-[0px] h-screen overflow-y-auto text-[#DF3B11] ' >
                                     <ul className='flex flex-col w-full gap-y-6 items-center mt-40 text-center font-inter font-normal text-[18px] leading-[32px] p-2'>
                                         <li className=' p-2'><Link href='/'> Home </Link></li>
                                         <li className=' p-2'><Link href='/product'> Store </Link></li>

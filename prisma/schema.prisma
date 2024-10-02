@@ -1,4 +1,4 @@
-generator client { 
+generator client {
   provider = "prisma-client-js"
 }
 
@@ -173,7 +173,6 @@ model Course {
   purchases        Purchase[]
 
   @@index([courseCategoryId])
-  
 }
 
 model CourseCategory {
@@ -241,6 +240,7 @@ model Purchase {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  @@unique([userId, courseId])
   @@index([courseId])
 }
 
