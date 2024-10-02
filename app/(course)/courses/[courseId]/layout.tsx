@@ -11,7 +11,6 @@ import Navbar from "@/components/navbar";
 import ToastProvider from "@/providers/toast-provider";
 import { getProgress } from "@/actions/get-progress";
 import CourseSidebar from "./_components/course-sidebar";
-import CourseNavbar from "./_components/course-navbar";
 import CourseMobileSidebar from "./_components/course-mobile-sidebar";
 import { Separator } from "@/components/ui/separator";
 
