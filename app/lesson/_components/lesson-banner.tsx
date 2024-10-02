@@ -11,7 +11,7 @@ const LessonBanner = async () => {
     const courses = await prismadb.course.findMany({
         where: {
             ...(userId ? { userId } : {}),
-            isPublished: false,
+            isPublished: true,
         },
     });
 
