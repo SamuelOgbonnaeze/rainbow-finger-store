@@ -6,7 +6,7 @@ const Lessons = () => {
     return (
         <div className="">
             <LessonHero />
-            <div className="px-[98px]">
+            <div className=" px-3 lg:px-[98px]">
                 <LessonDiscover />
                 <LessonBanner />
             </div>

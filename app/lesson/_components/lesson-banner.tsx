@@ -40,21 +40,21 @@ const LessonBanner = async () => {
             {!userId && (
                 <div className="relative">
 
-           
-                <div className=" bg-[url('/images/Virtuoso_guitar.png')] bg-cover bg-no-repeat bg-center items-center h-[480px] w-full rounded-md">
-                    <div className="text-white flex flex-col pt-[180px] pl-[84px]">
-                        <h2 className="font-nunito font-normal text-[64px] leading-[77px] p-3">My learning</h2>
-                        <p className="font-nunito font-normal text-[20px] leading-[31px] p-3">Courses & Wishlist</p>
-                    </div>
 
-                    <div className="text-white pr-6 text-right mt-8">
-                        <Button>
-                            <SignedOut>
-                                <SignInButton />
-                            </SignedOut>
-                        </Button>
+                    <div className=" bg-[url('/images/Virtuoso_guitar.png')] bg-cover bg-no-repeat bg-center items-center h-[480px] w-full rounded-md">
+                        <div className="text-white flex flex-col pt-[180px] pl-[84px]">
+                            <h2 className="font-nunito font-normal text-[64px] leading-[77px] p-3">My learning</h2>
+                            <p className="font-nunito font-normal text-[20px] leading-[31px] p-3">Courses & Wishlist</p>
+                        </div>
+
+                        <div className="text-white pr-6 text-right mt-8">
+                            <Button>
+                                <SignedOut>
+                                    <SignInButton />
+                                </SignedOut>
+                            </Button>
+                        </div>
                     </div>
-                </div>
                 </div>
             )}
 
@@ -62,28 +62,30 @@ const LessonBanner = async () => {
             {userId ? (
                 <div className="mt-10">
                     <h2>Welcome back!</h2>
-                    {courses.length > 0 ? (
-                        <div>
-                            {/* Render unpublished courses */}
-                            {courses.map((course) => (
-                                <div key={course.id} className="p-4 border rounded-md shadow-md">
-                                    <Image
-                                        src={course.imageUrl || '/images/default-course.png'}
-                                        alt={course.title}
-                                        width={300}
-                                        height={200}
-                                        className="rounded-md"
-                                    />
-                                    <h3 className="mt-4 text-xl font-semibold">{course.title}</h3>
-                                    <p className="mt-2">{course.description || 'No description available'}</p>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <p>No unpublished courses found.</p>
-                    )}
+                    <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-y-2">
+                        {courses.length > 0 ? (
+                            <div>
+                                {courses.map((course) => (
+                                    <div key={course.id} className="p-4 border rounded-md shadow-md">
+                                        <Image
+                                            src={course.imageUrl || '/images/default-course.png'}
+                                            alt={course.title}
+                                            width={300}
+                                            height={200}
+                                            className="rounded-md"
+                                        />
+                                        <h3 className="mt-4 text-xl font-semibold">{course.title}</h3>
+                                        <p className="mt-2">{course.description || 'No description available'}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : (
+                            <p>No  courses found.</p>
+                        )}
+                    </div>
                 </div>
             ) : null}
+
 
             <Separator className="my-10" />
         </div>
