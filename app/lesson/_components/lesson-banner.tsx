@@ -4,6 +4,7 @@ import prismadb from "@/lib/prismadb";
 import { SignedOut, SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
+import Link from "next/link";
 
 const LessonBanner = async () => {
     const { userId } = auth();
@@ -64,31 +65,36 @@ const LessonBanner = async () => {
                     <h2>Welcome back!</h2>
                     <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-y-2">
                         {courses.length > 0 ? (
+
                             <div>
                                 {courses.map((course) => (
-                                    <div key={course.id} className="p-4 border rounded-md shadow-md">
-                                        <Image
-                                            src={course.imageUrl || '/images/default-course.png'}
-                                            alt={course.title}
-                                            width={300}
-                                            height={200}
-                                            className="rounded-md"
-                                        />
-                                        <h3 className="mt-4 text-xl font-semibold">{course.title}</h3>
-                                        <p className="mt-2">{course.description || 'No description available'}</p>
-                                    </div>
+                                    <Link key={course.id} href={`/courses/${course.id}`}>
+                                        <div className="p-4 border rounded-md shadow-md">
+                                            <Image
+                                                src={course.imageUrl || '/images/default-course.png'}
+                                                alt={course.title}
+                                                width={300}
+                                                height={200}
+                                                className="rounded-md"
+                                            />
+                                            <h3 className="mt-4 text-xl font-semibold">{course.title}</h3>
+                                            <p className="mt-2">{course.description || 'No description available'}</p>
+                                        </div>
+                                    </Link>
                                 ))}
                             </div>
+
                         ) : (
                             <p>No  courses found.</p>
                         )}
                     </div>
                 </div>
-            ) : null}
+            ) : null
+            }
 
 
             <Separator className="my-10" />
-        </div>
+        </div >
     );
 };
 
