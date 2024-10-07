@@ -101,14 +101,14 @@ const CourseLayout = async ({
           <div className="md:pl-[300px]  h-full">
             <Navbar />
             <Separator />
-            <div className="mt-6">
+            <div className="mt-3 md:mt-0">
               <CourseMobileSidebar
                 course={course}
                 progressCount={progressCount}
               />
 
             </div>
-            <main className="pt-[40px]">
+            <main className="">
               {children}
             </main>
           </div>
