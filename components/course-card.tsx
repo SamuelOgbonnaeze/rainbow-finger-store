@@ -46,7 +46,7 @@ const CourseCard = ({
                         todo: progress components
                     </div>
                 ) : (
-                    <Currency value={price} />
+                    <Currency value={price} className="text-slate-700" />
                 )}
             </div>
         </Link>

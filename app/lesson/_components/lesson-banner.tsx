@@ -63,7 +63,7 @@ const LessonBanner = async () => {
             {userId ? (
                 <div className="mt-10">
                     <h2>Welcome back!</h2>
-                    <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-y-2">
+                    <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-2">
                         {courses.length > 0 ? (
 
                             <div>

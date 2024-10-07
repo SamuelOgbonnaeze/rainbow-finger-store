@@ -121,7 +121,7 @@ const Summary = () => {
                 </div>
                 <div className="flex items-center justify-between  border-gray-200 pt-4">
                     <div className="text-base font-medium ">Order total:</div>
-                    <Currency value={amount / 100} />
+                    <Currency value={amount / 100} className="text-slate-700" />
                 </div>
             </div>
             <PaystackButton {...componentProps} className="cursor-pointer text-center text-xs leading-tight tracking-wider text-white font-bold w-full h-14 focus:outline-none mt-16 rounded-full bg-[#E24F29] border-transparent px-5 py-3 disabled:cursor-not-allowed disabled:opacity-50 hover:opacity-85 transition hover:text-[#E24F29] hover:bg-white" />
