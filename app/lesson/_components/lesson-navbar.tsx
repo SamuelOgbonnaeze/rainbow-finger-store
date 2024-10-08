@@ -30,11 +30,7 @@ const LessonNavbar = () => {
     return (
 
         <div className=' absolute  z-10 w-full py-4 font-semibold '>
-            {/* {isSearchPage && (
-            <div className='hidden md:block'>
-                <SearchInput />
-            </div>
-        )} */}
+            
             <div >
 
                 <Container>

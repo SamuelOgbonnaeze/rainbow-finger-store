@@ -7,12 +7,16 @@ import CourseEnrollButton from "./_components/course-enroll-button";
 import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 import { File } from "lucide-react";
+import useCourseCart from "@/hooks/use-course-cart";
+import prismadb from "@/lib/prismadb";
+
 
 const ChapterIdPage = async (
     { params }: { params: { courseId: string; chapterId: string } }
 ) => {
 
     const { userId } = auth()
+   
 
     if (!userId) {
         return redirect("/lesson")
@@ -35,9 +39,29 @@ const ChapterIdPage = async (
     if (!chapter || !course) {
         return redirect("/lesson")
     }
+    const currentCourse = await prismadb.course.findUnique({
+        where: {
+            id: params.courseId,
+        }
+    })
+
+    if (!currentCourse) {
+        console.error("Course not found");
+        return redirect("/lesson")
+    }
+
+    const data = {
+        id: currentCourse.id,
+        title: currentCourse.title,
+        imageUrl: currentCourse.imageUrl,
+        price: currentCourse.price,
+        isPublished: currentCourse.isPublished,
+    }
 
     const isLocked = !chapter.isFree && !purchase;
     const completeOnEnd = !!purchase && !userProgress?.isComplete
+
+   
 
     return (
         <div>
@@ -73,6 +97,7 @@ const ChapterIdPage = async (
                             <div>mijf</div>
                         ) : (
                             <CourseEnrollButton
+                            data={currentCourse}
                                 courseId={params.courseId}
                                 price={course.price!}
                             />
