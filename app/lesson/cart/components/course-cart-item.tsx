@@ -1,18 +1,20 @@
 import Image from "next/image";
 import { X } from "lucide-react";
-import { Product } from "@/types";
+import { Course } from "@/types";
 
-import useCart from "@/hooks/use-cart";
+
 import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency"
+import useCourseCart from "@/hooks/use-course-cart";
 
-interface CartItemProps {
-    data: Product;
+
+interface CourseCartItemProps {
+    data: Course;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ data }) => {
+const CourseCartItem: React.FC<CourseCartItemProps> = ({ data }) => {
 
-    const cart = useCart();
+    const cart = useCourseCart();
 
     const onRemove = () => {
         cart.removeItem(data.id)
@@ -23,8 +25,8 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
             <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
                 <Image
                     fill
-                    src={data.images[0].url}
-                    alt="Product Image"
+                    src={data.imageUrl!}
+                    alt="Course Image"
                     className="object-cover object-center"
                 />
             </div>
@@ -33,18 +35,13 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
                     <IconButton onClick={onRemove} icon={<X size={15} />} />
                 </div>
                 <div className="sm:py-8 items-center">
-                    <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-2 sm:pr-0">
+                    <div className="relative flex flex-col pr-9 gap-y-2 sm:pr-0">
                         <div className="flex justify-between">
                             <p className="text-lg font-semibold text-black">
-                                {data.name}
+                                {data.title}
                             </p>
                         </div>
-                        <div className="mt-1 flex text-sm">
-                            <p className="text-gray-500">{data.brand.name}</p>
-                            <p className="text-gray-500 ml-2 border-l border-gray-300 pl-4">{data.color.name}</p>
-                            <p className="text-gray-500 ml-2 border-l border-gray-300 pl-4">{data.size.name}</p>
-                        </div>
-                        <Currency value={data.price} className="text-slate-700" />
+                        <Currency value={data.price!} className="text-slate-700" />
                     </div>
                 </div>
 
@@ -53,4 +50,4 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
     )
 }
 
-export default CartItem;
+export default CourseCartItem;

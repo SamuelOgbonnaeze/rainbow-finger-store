@@ -34,7 +34,7 @@ const useCourseCart = create(
         }
     ),
         {
-            name: "cart-storage",
+            name: "course-cart-storage",
             storage: createJSONStorage(() => localStorage)
         })
 )

@@ -16,7 +16,7 @@ const ChapterIdPage = async (
 ) => {
 
     const { userId } = auth()
-   
+
 
     if (!userId) {
         return redirect("/lesson")
@@ -53,15 +53,15 @@ const ChapterIdPage = async (
     const data = {
         id: currentCourse.id,
         title: currentCourse.title,
-        imageUrl: currentCourse.imageUrl,
-        price: currentCourse.price,
+        imageUrl: currentCourse.imageUrl!,
+        price: currentCourse.price!,
         isPublished: currentCourse.isPublished,
     }
 
     const isLocked = !chapter.isFree && !purchase;
     const completeOnEnd = !!purchase && !userProgress?.isComplete
 
-   
+
 
     return (
         <div>
@@ -97,7 +97,7 @@ const ChapterIdPage = async (
                             <div>mijf</div>
                         ) : (
                             <CourseEnrollButton
-                            data={currentCourse}
+                                data={data}
                                 courseId={params.courseId}
                                 price={course.price!}
                             />

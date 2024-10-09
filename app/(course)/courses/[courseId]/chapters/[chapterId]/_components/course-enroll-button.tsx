@@ -22,10 +22,8 @@ const CourseEnrollButton =  ({ courseId, price,data }: CourseEnrollButtonProps) 
 
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation();
-
         cart.addItem(data)
-        console.log(data)
-        console.log("onAddToCart  is clicked")
+        redirect("lesson/cart")
     }
 
     return (

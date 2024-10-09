@@ -4,14 +4,14 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-import useCart from "@/hooks/use-cart";
 import Currency from "@/components/ui/currency";
 import { PaystackButton } from "react-paystack";
+import useCourseCart from "@/hooks/use-course-cart";
 
-const Summary = () => {
+const CourseSummary = () => {
 
-    const items = useCart((state) => state.items);
-    const removeAll = useCart((state) => state.removeAll);
+    const items = useCourseCart((state) => state.items);
+    const removeAll = useCourseCart((state) => state.removeAll);
 
     const totalPrice = items.reduce((total, item) => total + Number(item.price), 0);
     const amount = totalPrice * 100;
@@ -25,8 +25,8 @@ const Summary = () => {
     const name = `${firstname} ${lastname}`
 
     const onCheckout = async () => {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-            productIds: items.map((item) => item.id),
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/coursecheckout`, {
+            courseIds: items.map((item) => item.id),
             phonenumber: phone,
             fullname: name
         });
@@ -52,9 +52,9 @@ const Summary = () => {
         },
         publicKey,
         text: 'Pay now',
-        onSuccess: () => {
+        onSuccess: async() => {
             toast.success("Your purchase was successful! Thank you for doing business with us");
-            onCheckout();
+            await onCheckout();
             resetForm();
             removeAll();
         },
@@ -65,13 +65,13 @@ const Summary = () => {
 
     return (
         <div className="mt-16 rounded-lg px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8 bg-[#df3b11] bg-opacity-70 text-white">
-            <h2 className="text-lg font-medium ">Order Checkout</h2>
+            <h2 className="text-lg font-medium ">Course Checkout</h2>
             <div className="mt-6 space-y-4">
                 <div className="flex flex-col items-center justify-between border-t border-gray-200 ">
                     <div className="flex w-full text-base font-medium gap-x-2 sm:gap-x-4 pt-4">
-                        <span className="sm:w-[150px]" >
+                        <span className=" w-[200px] md:w-[150px]" >
                             <label>First Name:</label>
-                        </span>
+                        </span> 
                         <input
                             type="text"
                             id="name"
@@ -82,7 +82,7 @@ const Summary = () => {
                     </div>
 
                     <div className="flex w-full text-base font-medium gap-x-2 sm:gap-x-4 pt-4">
-                        <span className="sm:w-[150px]" >
+                        <span className="w-[200px] md:w-[150px]" >
                             <label>Last Name:</label>
                         </span>
                         <input
@@ -95,7 +95,7 @@ const Summary = () => {
                     </div>
 
                     <div className="flex w-full text-base font-medium gap-x-2 sm:gap-x-4 pt-4">
-                        <span className="sm:w-[150px]" >
+                        <span className="w-[200px] md:w-[150px]" >
                             <label>Email:</label>
                         </span>
                         <input
@@ -107,7 +107,7 @@ const Summary = () => {
                         />
                     </div>
                     <div className="flex w-full text-base font-medium gap-x-2 sm:gap-x-4 pt-4">
-                        <span className="sm:w-[150px]">
+                        <span className="w-[200px] md:w-[150px]">
                             <label>Phone:</label>
                         </span>
                         <input
@@ -129,4 +129,4 @@ const Summary = () => {
     );
 }
 
-export default Summary;
+export default CourseSummary;
