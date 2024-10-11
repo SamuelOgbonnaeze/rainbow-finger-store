@@ -9,12 +9,12 @@ import Image from 'next/image'
 
 import Logo from '@/public/images/logo.png'
 import Container from '@/components/ui/container'
-import NavbarActions from '@/components/ui/navbar-actions';
 import { Menu, X } from 'lucide-react'
 import { Dialog } from '@headlessui/react'
 import IconButton from '@/components/ui/icon-button'
 import { usePathname } from 'next/navigation'
 import { SearchInput } from '@/components/search-input'
+import LessonNavbarActions from './lesson-navbar-actions'
 
 
 
@@ -30,7 +30,7 @@ const LessonNavbar = () => {
     return (
 
         <div className=' absolute  z-10 w-full py-4 font-semibold '>
-            
+
             <div >
 
                 <Container>
@@ -74,7 +74,7 @@ const LessonNavbar = () => {
                                             <li className=' p-2'><Link href='/lesson'> Lessons </Link></li>
                                             <li>
                                                 <div className='mx-auto flex items-center gap-x-4'>
-                                                    <NavbarActions />
+                                                    <LessonNavbarActions />
                                                 </div>
                                             </li>
                                         </ul>
@@ -89,20 +89,18 @@ const LessonNavbar = () => {
                         <div className={open ? 'hidden ' : 'hidden lg:flex items-center justify-between text-gray-400  w-full'} >
                             {/* left side */}
                             <div className='container'>
-                                <div className=' ml-[45px]  h-[32px] gap-x-[24px] items-center flex'>
-                                    <Link href='/product' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
-                                        <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Store</p>
-                                    </Link>
-                                    <Link href='/lesson' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
-                                        <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Lessons</p>
-                                    </Link>
-                                    {isSearchPage && (
-                                        <div className='hidden md:block ml-auto'>
-                                            <SearchInput />
-                                        </div>
-                                    )}
-                                    <div className='ml-auto flex items-center gap-x-4'>
-                                        <NavbarActions />
+                                <div className='container flex items-center justify-between'>
+                                    <div className=' ml-[45px]  h-[32px] gap-x-[24px] items-center flex'>
+                                        <Link href='/product' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
+                                            <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Store</p>
+                                        </Link>
+                                        <Link href='/lesson' className='w-[82px] h-[32px] rounded-[5px] px-2 gap-[8px] hover:text-[#DF3B11]'>
+                                            <p className='w-[62px] h-[32px] font-inter font-normal text-[18px] leading-[32px] text-center'>Lessons</p>
+                                        </Link>
+
+                                    </div>
+                                    <div className='mr-[100px] flex items-center gap-x-4'>
+                                        <LessonNavbarActions />
                                     </div>
                                 </div>
                             </div>

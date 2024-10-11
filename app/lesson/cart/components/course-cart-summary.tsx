@@ -8,8 +8,14 @@ import Currency from "@/components/ui/currency";
 import { PaystackButton } from "react-paystack";
 import useCourseCart from "@/hooks/use-course-cart";
 
-const CourseSummary = () => {
 
+interface CourseSummaryProps{
+    userId: string;
+}
+
+const CourseSummary = ({userId}: CourseSummaryProps) => {
+
+   
     const items = useCourseCart((state) => state.items);
     const removeAll = useCourseCart((state) => state.removeAll);
 
@@ -25,11 +31,17 @@ const CourseSummary = () => {
     const name = `${firstname} ${lastname}`
 
     const onCheckout = async () => {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/coursecheckout`, {
-            courseIds: items.map((item) => item.id),
-            phonenumber: phone,
-            fullname: name
-        });
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/coursecheckout`, {
+                courseIds: items.map((item) => item.id),
+                phonenumber: phone,
+                fullname: name,
+                user:userId
+            });
+        } catch (error) {
+            console.log("Error sending axios post to admin board")
+        }
+
     }
 
     const resetForm = () => {
@@ -52,9 +64,9 @@ const CourseSummary = () => {
         },
         publicKey,
         text: 'Pay now',
-        onSuccess: async() => {
+        onSuccess: () => {
             toast.success("Your purchase was successful! Thank you for doing business with us");
-            await onCheckout();
+            onCheckout();
             resetForm();
             removeAll();
         },
@@ -71,7 +83,7 @@ const CourseSummary = () => {
                     <div className="flex w-full text-base font-medium gap-x-2 sm:gap-x-4 pt-4">
                         <span className=" w-[200px] md:w-[150px]" >
                             <label>First Name:</label>
-                        </span> 
+                        </span>
                         <input
                             type="text"
                             id="name"

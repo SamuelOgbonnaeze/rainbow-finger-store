@@ -62,7 +62,6 @@ const ChapterIdPage = async (
     const completeOnEnd = !!purchase && !userProgress?.isComplete
 
 
-
     return (
         <div>
             {userProgress?.isComplete && (

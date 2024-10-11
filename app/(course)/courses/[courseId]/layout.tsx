@@ -7,12 +7,13 @@ import prismadb from "@/lib/prismadb";
 import { redirect, useParams } from "next/navigation";
 import "@/app/globals.css"
 
-import Navbar from "@/components/navbar";
 import ToastProvider from "@/providers/toast-provider";
 import { getProgress } from "@/actions/get-progress";
 import CourseSidebar from "./_components/course-sidebar";
 import CourseMobileSidebar from "./_components/course-mobile-sidebar";
 import { Separator } from "@/components/ui/separator";
+import CourseNavbar from "./_components/course-navbar";
+
 
 
 
@@ -99,7 +100,7 @@ const CourseLayout = async ({
             />
           </div>
           <div className="md:pl-[300px]  h-full">
-            <Navbar />
+            <CourseNavbar />
             <Separator />
             <div className="mt-3 md:mt-0">
               <CourseMobileSidebar
