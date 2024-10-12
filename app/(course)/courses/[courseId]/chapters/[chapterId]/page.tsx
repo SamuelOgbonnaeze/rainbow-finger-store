@@ -9,6 +9,7 @@ import { Preview } from "@/components/preview";
 import { File } from "lucide-react";
 import useCourseCart from "@/hooks/use-course-cart";
 import prismadb from "@/lib/prismadb";
+import { CourseProgressButton } from "./_components/course-progress-button";
 
 
 const ChapterIdPage = async (
@@ -86,14 +87,20 @@ const ChapterIdPage = async (
                         playbackId={muxData?.playbackId!}
                         isLocked={isLocked}
                         completeOnEnd={completeOnEnd}
+                        userId={userId}
                     />
                 </div>
                 <div>
                     <div className="p-4 flex flex-col md:flex-row items-center justify-between">
                         <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
                         {purchase ? (
-                            // add course proress button 
-                            <div>mijf</div>
+                            <CourseProgressButton
+                                chapterId={params.chapterId}
+                                courseId={params.courseId}
+                                nextChapterId={nextChapter?.id}
+                                isCompleted={!!userProgress?.isComplete}
+                                userId={userId}
+                            />
                         ) : (
                             <CourseEnrollButton
                                 data={data}

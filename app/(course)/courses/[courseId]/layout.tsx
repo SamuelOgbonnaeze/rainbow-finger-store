@@ -13,6 +13,7 @@ import CourseSidebar from "./_components/course-sidebar";
 import CourseMobileSidebar from "./_components/course-mobile-sidebar";
 import { Separator } from "@/components/ui/separator";
 import CourseNavbar from "./_components/course-navbar";
+import { ConfettiProvider } from "@/providers/confetti-provider";
 
 
 
@@ -92,7 +93,7 @@ const CourseLayout = async ({
       <html className={`${inter.variable} ${nunito.variable} ${lato.variable} ${hankenGrotesk.variable}`} lang="en">
         <body>
           <ToastProvider />
-
+          <ConfettiProvider />
           <div className="hidden md:flex h-full w-[300px] flex-col fixed inset-y-0">
             <CourseSidebar
               course={course}
