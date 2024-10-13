@@ -50,7 +50,7 @@ const LessonLibrary = async ({ searchParams }: LessonLibraryProps) => {
                     items={courseCategories}
                 />
             </div>
-            <div className="px-6 pt-3 lg:hidden lg:mb-0 block">
+            <div className="px-6 pt-3  lg:mb-0 block">
                 <SearchInput />
             </div>
             <div className="p-4 bg-white space-y-4 ">
